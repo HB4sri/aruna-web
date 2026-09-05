@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="tr" class="yazi-bekliyor">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.url == '/' %}Aruna{% else %}{{ page.title | default: 'Aruna' }}{% endif %}</title>
+<meta name="description" content="{{ page.aciklama | default: 'Aruna, gunluk ve not defteri icin bir Android uygulamasi. Hesap yok, sunucu yok, internet izni yok.' }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Aruna">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="{% if page.url == '/' %}Aruna{% else %}{{ page.title | default: 'Aruna' }}{% endif %}">
+<meta property="og:description" content="{{ page.aciklama | default: 'Aruna, gunluk ve not defteri icin bir Android uygulamasi. Hesap yok, sunucu yok, internet izni yok.' }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f5f5">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%238E2F3C'/%3E%3Cpath d='M7 5.5h8.5a1.5 1.5 0 0 1 1.5 1.5v11.5H8.5A1.5 1.5 0 0 1 7 17V5.5Z' fill='%23fff'/%3E%3Crect x='5.6' y='5.5' width='1.4' height='13' rx='0.5' fill='%23ffffff' opacity='0.55'/%3E%3C/svg%3E">
+
+<!-- crossorigin sart, ayni kokende bile: yazi tipi istekleri anonim modda
+     gider ve bayraksiz on yukleme eslesmez, dosya ikinci kez inerdi.
+     Sekuya yalniz "Aruna" yaziyor, latin-ext'i on yuklenmiyor. -->
+<link rel="preload" href="{{ '/yazitipi/bricolage-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/yazitipi/bricolage-latin-ext.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/yazitipi/sekuya-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
+<style>
+@font-face{font-family:'Sekuya';font-style:normal;font-weight:400;font-display:swap;src:url({{ '/yazitipi/sekuya-latin.woff2' | relative_url }}) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Sekuya';font-style:normal;font-weight:400;font-display:swap;src:url({{ '/yazitipi/sekuya-latin-ext.woff2' | relative_url }}) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:200 800;font-display:swap;src:url({{ '/yazitipi/bricolage-latin.woff2' | relative_url }}) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:200 800;font-display:swap;src:url({{ '/yazitipi/bricolage-latin-ext.woff2' | relative_url }}) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+/* Gecko yazi tipi inerken metni hic cizmez: zeminler gelir, yazilar bir kare
+   sonra topluca belirir. Sayfa yuzler hazir olana kadar gizli tutulur;
+   sinifi asagidaki betik kaldirir, betik kosmazsa <noscript> iptal eder. */
+.yazi-bekliyor{visibility:hidden}
+
+:root{
+  color-scheme:light;
+  --bg:#f5f5f5;
+  --yuzey:#ffffff;
+  --metin:#313131;
+  --sonuk:#686868;
+  --cizgi:#d8d8d8;
+  --olcu:760px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    color-scheme:dark;
+    --bg:#000000;
+    --yuzey:#141414;
+    --metin:#d7d7d7;
+    --sonuk:#9d9d9d;
+    --cizgi:#2a2a2a;
+  }
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scrollbar-gutter:stable}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+body{
+  min-width:320px; min-height:100vh;
+  display:flex; flex-direction:column;
+  margin:0;
+  background:var(--bg);
+  color:var(--metin);
+  font-family:'Bricolage Grotesque',system-ui,-apple-system,"Segoe UI",sans-serif;
+  line-height:1.65;
+}
+main{flex:1}
+.kap{width:min(var(--olcu),calc(100% - 40px));margin-inline:auto}
+
+a{color:inherit;text-underline-offset:.18em}
+a:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+
+header{padding:30px 0 0}
+header .kap{display:flex;align-items:baseline;justify-content:space-between;gap:20px}
+.marka{
+  font-family:'Sekuya',system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:1.15rem; letter-spacing:.05em;
+  text-decoration:none;
+}
+header nav a{font-size:.92rem;color:var(--sonuk);text-decoration:none}
+header nav a:hover{color:var(--metin);text-decoration:underline}
+
+.govde{padding:52px 0 72px}
+.govde>:first-child{margin-top:0}
+
+h1,h2,h3,code{overflow-wrap:break-word}
+h1{margin:0;font-size:clamp(1.9rem,1.45rem + 1.8vw,2.5rem);line-height:1.22;letter-spacing:-.018em;font-weight:700;text-wrap:balance}
+h2{margin:52px 0 0;padding-top:22px;border-top:1px solid var(--cizgi);font-size:1.45rem;line-height:1.25;letter-spacing:-.012em;font-weight:700}
+h3{margin:32px 0 6px;font-size:1.05rem;line-height:1.3;font-weight:700}
+p{margin:0 0 14px}
+strong{font-weight:700}
+ul{margin:0 0 14px;padding-left:1.25rem}
+li{margin:.3rem 0}
+hr{border:0;height:1px;background:var(--cizgi);margin:32px 0}
+code{
+  font-family:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,monospace;
+  font-size:.88em;
+  padding:.1em .3em;border-radius:3px;
+  background:var(--yuzey);border:1px solid var(--cizgi);
+}
+
+/* Kaynakta surum ve iletisim ayri satirlardir; Markdown ikisini tek paragrafa
+   alir ve satir sonunu korur, pre-line o satiri geri verir. */
+.belge .govde>h1+p{
+  margin:16px 0 8px;
+  font-size:.92rem;line-height:1.6;color:var(--sonuk);
+  font-variant-numeric:tabular-nums;
+  white-space:pre-line;
+}
+.belge .govde>h1+p strong{color:var(--metin);font-weight:600}
+.belge .govde>h1+p+p{margin:0;font-size:.92rem;color:var(--sonuk)}
+.belge .govde>h1+p+p+hr{margin-top:22px}
+/* Ilk dil basligi, hemen ustundeki <hr> ile ikinci bir cizgi cikarmasin. */
+.belge .govde>hr+h2{border-top:0;padding-top:0;margin-top:32px}
+
+.giris .govde{padding-top:76px}
+.giris h1{
+  font-family:'Sekuya',system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-weight:400;letter-spacing:.04em;line-height:1.3;
+  font-size:clamp(2.1rem,1.6rem + 2.2vw,2.9rem);
+}
+.giris .govde>h1+p{margin:22px 0 14px}
+.giris .govde>h1+p+p{color:var(--sonuk)}
+.giris .govde ul{list-style:none;padding:0;margin:34px 0 24px}
+.giris .govde li{margin:0}
+.giris .govde li a{font-weight:600;text-decoration-thickness:1px}
+.giris .govde li a::after{content:" \2192";color:var(--sonuk)}
+.giris .govde>ul+p{font-size:.94rem;color:var(--sonuk)}
+
+footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:20px 0 40px;color:var(--sonuk);font-size:.88rem}
+
+@media (max-width:600px){
+  header{padding-top:22px}
+  .govde{padding:36px 0 52px}
+  .giris .govde{padding-top:48px}
+  h2{margin-top:40px}
+}
+
+@media print{
+  header,footer{display:none}
+  body{background:#fff;color:#000;font-size:10.5pt;line-height:1.5}
+  .kap{width:auto}
+  .govde{padding:0}
+  h2,h3{break-after:avoid}
+}
+</style>
+<noscript><style>.yazi-bekliyor{visibility:visible}</style></noscript>
+<script>
+/* Gizleme HTML'de acik, buradan kaldiriliyor: betik hata alsa da asagidaki uc
+   yoldan biri sayfayi acar. document.fonts.load'a metin vermek sart, metinsiz
+   cagri yalnizca bosluk karakterini kapsayan dosyayi indirir. */
+(function () {
+  var kok = document.documentElement;
+  var acildi = false;
+  function ac() {
+    if (acildi) return;
+    acildi = true;
+    kok.className = kok.className.replace(/\byazi-bekliyor\b/g, '').trim();
+  }
+  if (!document.fonts || !document.fonts.load || !window.Promise) { ac(); return; }
+  try {
+    Promise.all([
+      document.fonts.load("400 1em 'Bricolage Grotesque'", 'Aağ'),
+      document.fonts.load("400 1em 'Sekuya'", 'Aruna')
+    ]).then(ac, ac);
+  } catch (e) { ac(); }
+  window.addEventListener('load', ac);
+  setTimeout(ac, 2000);
+})();
+</script>
+</head>
+<body class="{% if page.url contains 'gizlilik' %}belge{% else %}giris{% endif %}">
+
+{% comment %}
+Giris sayfasinda ust cubuk yok: adi zaten h1 soyluyor, politika bagi da
+govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
+{% endcomment %}
+{% if page.url contains 'gizlilik' %}
+<header>
+  <div class="kap">
+    <a class="marka" href="{{ '/' | relative_url }}">Aruna</a>
+    <nav><a href="{{ '/' | relative_url }}">Ana sayfa</a></nav>
+  </div>
+</header>
+{% endif %}
+
+<main class="kap govde">
+{{ content }}
+</main>
+
+<footer>
+  <div class="kap">Aruna · bağımsız geliştirici</div>
+</footer>
+
+</body>
+</html>

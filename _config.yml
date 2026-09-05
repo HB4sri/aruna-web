@@ -1,0 +1,31 @@
+title: Aruna
+description: >-
+  Gunluk ve not defteri icin bir Android uygulamasi. Hesap yok, sunucu yok,
+  internet izni yok.
+
+# baseurl bos birakilamaz: bos kalirsa sayfa ici baglar hb4sri.github.io
+# koklerine gider, aruna-web'e degil.
+url: https://hb4sri.github.io
+baseurl: /aruna-web
+
+lang: tr
+
+# gizlilik.md, uygulama deposundaki docs/gizlilik_politikasi.md ile birebir
+# ayni kalsin diye on bilgi (front matter) tasimaz. Sayfaya ne gerekiyorsa
+# buradan verilir.
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  # Play Console'a ve uygulamanin icine tek bir adres verilecegi icin adres
+  # uzantisiz sabit: /gizlilik/. Uygulamadaki karsiligi kArunaPrivacyUrl
+  # (settings_about_page.dart) ve orada testle muhurlu.
+  - scope:
+      path: "gizlilik.md"
+    values:
+      permalink: /gizlilik/
+      aciklama: >-
+        Aruna gizlilik politikasi: sunucu yok, hesap yok, internet izni yok.
+        Yazdiklariniz telefonda kalir; yedek dosyasi ve paylasim disinda
+        cikmaz.
