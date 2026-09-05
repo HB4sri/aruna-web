@@ -218,13 +218,21 @@ h2:hover .cengel,h3:hover .cengel,.cengel:focus-visible{opacity:1}
 }
 .duzen>main{min-width:0}
 
-.icindekiler{position:sticky;top:26px;padding:46px 0 24px;font-size:.9rem}
+.icindekiler{
+  position:sticky;top:26px;padding:46px 0 24px;font-size:.9rem;
+  /* Yukseklik yalniz gorus alanina degil, ALT BILGIYE de bagli: yapiskan oge
+     kabinin (.duzen) dibini gecemez ve alt bilgi o kabin disinda. Sutun
+     `gorus - 26 (yapisma payi) - alt bilgi` degerinden uzun olursa sayfanin
+     dibinde yukari itilir (olculdu 2026-09-05: 560 piksellik gorunumde
+     -98 piksel). 190 = 26 + alt bilginin olculen yuksekligi + pay. */
+  max-height:calc(100vh - 190px);overflow-y:auto;
+}
 .icindekiler:empty{display:none}
 .icindekiler .yan-baslik{
   font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;
   color:var(--sonuk);margin:0 0 12px;font-weight:600;
 }
-.icindekiler ol{list-style:none;margin:0;padding:0;max-height:calc(100vh - 150px);overflow-y:auto}
+.icindekiler ol{list-style:none;margin:0;padding:0}
 .icindekiler li{margin:0}
 .icindekiler a{
   display:block;padding:5px 0 5px 13px;
@@ -249,7 +257,10 @@ h2:hover .cengel,h3:hover .cengel,.cengel:focus-visible{opacity:1}
 /* Dar ekran: yan sutun kalkar, icindekiler metnin ustunde katlanir listeye doner. */
 @media (max-width:940px){
   .duzen{display:block;width:min(760px,calc(100% - 40px))}
-  .icindekiler{position:static;padding:24px 0 0;border-bottom:1px solid var(--cizgi)}
+  .icindekiler{
+    position:static;padding:24px 0 0;border-bottom:1px solid var(--cizgi);
+    max-height:none;overflow:visible;
+  }
   .icindekiler .yan-baslik{display:none}
   .icindekiler .yan-kunye{display:none}
   .icindekiler details>summary{
@@ -259,7 +270,7 @@ h2:hover .cengel,h3:hover .cengel,.cengel:focus-visible{opacity:1}
   .icindekiler details>summary::-webkit-details-marker{display:none}
   .icindekiler details>summary::after{content:" +";font-weight:600}
   .icindekiler details[open]>summary::after{content:" \2212"}
-  .icindekiler ol{max-height:none;padding:2px 0 12px;overflow:visible}
+  .icindekiler ol{padding:2px 0 12px}
 }
 
 /* Ozet: politikanin ilk bolumu. Metne dokunulmadi, yalnizca one alindi;
@@ -785,24 +796,62 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;col
      * basliklar da sirayla etkin olur ve HER an tam bir baslik isaretlidir.
      */
     var beklemede = false;
+    var kilitli = -1;   /* listeden secilen baslik; okuyucu kaydirana kadar korunur */
+
+    /* Okuma cizgisi: gorus alaninin ustunden bu kadar asagisi. SABIT, cunku
+     * cizgi kaydirmayla birlikte kayarsa isaret sayfanin basinda "ekranin
+     * tepesindeki bolum", sonunda "ekranin dibindeki bolum" anlamina gelir ve
+     * arada okuyucunun bir ila dort bolum ilerisini gosterir (olculdu
+     * 2026-09-05, gercek tarayicida: 14 basligin 7'si okunurken bir an bile
+     * isaretlenmiyordu, 14 bagin 8'i tiklaninca yanlis basligi isaretliyordu).
+     *
+     * Deger 88'in ust siniri var: tiklanan baslik `scroll-margin-top` ile
+     * ekranda 22 pikselde duruyor, dogru kalmasi icin `cizgi - 22 + 8` en kisa
+     * bolumden (86 piksel) kucuk olmali, yani cizgi 100'un altinda. 88 bunun
+     * 12 piksel altinda ve okuyucunun gozunun gercekten oldugu seride denk.
+     */
+    var OKUMA_CIZGISI = 88;
 
     function etkiniIsaretle() {
       beklemede = false;
       var belge = document.documentElement;
-      var enFazla = belge.scrollHeight - window.innerHeight;
       var kaydirma = window.pageYOffset || belge.scrollTop || 0;
-      var oran = enFazla > 0 ? Math.min(1, Math.max(0, kaydirma / enFazla)) : 0;
-      var cizgi = kaydirma + 90 + Math.max(0, window.innerHeight - 140) * oran;
+      var enFazla = belge.scrollHeight - window.innerHeight;
 
       var etkin = 0;
-      for (var i = 0; i < h3ler.length; i++) {
-        var ust = h3ler[i].getBoundingClientRect().top + kaydirma;
-        if (ust - 8 <= cizgi) etkin = i; else break;
+      if (kilitli >= 0) {
+        etkin = kilitli;
+      } else {
+        var cizgi = kaydirma + OKUMA_CIZGISI;
+        for (var i = 0; i < h3ler.length; i++) {
+          var ust = h3ler[i].getBoundingClientRect().top + kaydirma;
+          if (ust - 8 <= cizgi) etkin = i; else break;
+        }
+        /* Sayfanin dibinde kaydirma biter ama son basliklar cizgiye hic
+         * ulasamaz: belgenin kuyrugu bir gorus alani kadar uzun degil. Dipte
+         * son baslik secilir; ondan oncekilere listeye tiklayarak varilir
+         * (kilit). Kuyruga bir ekran bosluk eklemek bu sinirin tek gercek
+         * cozumu ama gorsel bedeli var ve KULLANICI ISTEMEDI (2026-09-05). */
+        if (enFazla > 0 && enFazla - kaydirma < 2) etkin = h3ler.length - 1;
       }
+
       for (var j = 0; j < baglar.length; j++) {
         if (j === etkin) baglar[j].setAttribute('aria-current', 'true');
         else baglar[j].removeAttribute('aria-current');
       }
+      bagiGoster(baglar[etkin]);
+    }
+
+    /* Isaretli bag listenin gorunur penceresinin disinda kalabiliyor: yan
+     * sutun kisa ekranda kendi icinde kayiyor. Sayfanin kaydirmasina
+     * dokunulmadan yalniz kabin `scrollTop`'u ayarlaniyor. */
+    function bagiGoster(bag) {
+      if (!bag || !yanKap) return;
+      if (yanKap.scrollHeight <= yanKap.clientHeight + 1) return;
+      var kap = yanKap.getBoundingClientRect();
+      var kutu = bag.getBoundingClientRect();
+      if (kutu.top < kap.top + 4) yanKap.scrollTop -= (kap.top + 4 - kutu.top);
+      else if (kutu.bottom > kap.bottom - 4) yanKap.scrollTop += (kutu.bottom - kap.bottom + 4);
     }
 
     function tazelemeIste() {
@@ -812,14 +861,40 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;col
       else etkiniIsaretle();
     }
 
+    /* Listeden bir baslik secilince o baslik isaretlenir ve okuyucu kendi
+     * kaydirana kadar oyle kalir. Yumusak kaydirma sirasinda isaretin butun
+     * basliklari supurmesini de onluyor. */
+    function kilidiAc() { kilitli = -1; tazelemeIste(); }
+    for (var t = 0; t < baglar.length; t++) {
+      (function (dizin) {
+        baglar[dizin].addEventListener('click', function () {
+          kilitli = dizin;
+          tazelemeIste();
+        });
+      })(t);
+    }
+    window.addEventListener('wheel', kilidiAc, { passive: true });
+    window.addEventListener('touchstart', kilidiAc, { passive: true });
+    window.addEventListener('keydown', kilidiAc);
+
     window.addEventListener('scroll', tazelemeIste, { passive: true });
     window.addEventListener('resize', tazelemeIste);
     izleyici = {
       disconnect: function () {
         window.removeEventListener('scroll', tazelemeIste);
         window.removeEventListener('resize', tazelemeIste);
+        window.removeEventListener('wheel', kilidiAc);
+        window.removeEventListener('touchstart', kilidiAc);
+        window.removeEventListener('keydown', kilidiAc);
       }
     };
+
+    /* Adreste bir bolum kimligi varsa acilista o baslik isaretli gelmeli. */
+    if (window.location.hash.length > 1) {
+      for (var d = 0; d < baglar.length; d++) {
+        if (baglar[d].getAttribute('href') === window.location.hash) kilitli = d;
+      }
+    }
     etkiniIsaretle();
   }
 
