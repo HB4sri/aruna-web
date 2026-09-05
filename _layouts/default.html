@@ -303,14 +303,20 @@ h2:hover .cengel,h3:hover .cengel,.cengel:focus-visible{opacity:1}
    kendi dugmesinde duruyor. */
 .giris .baglar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 44px;padding:0;list-style:none}
 .giris .baglar li{margin:0}
-.giris .baglar a{
+/* Dugmenin rengi govdenin genel bag kuralindan KORUNUYOR. O kural
+   (`.govde a:not(.cengel):hover`) yaziyi marka rengine boyuyor; dugmenin
+   ZEMINI de marka rengi oldugu icin yazi zeminle ayni renge dusuyor ve
+   kayboluyordu (2026-09-05 cihaz bulgusu, iki temada da). Seciciye `li`
+   eklendi: ozgulluk genel kurali yeniyor, yani sira degisse bile calisir. */
+.giris .baglar li a{
   display:inline-flex;align-items:center;gap:10px;
   background:var(--marka);color:var(--marka-yazi);
   padding:14px 26px;border-radius:999px;
   font-size:1.02rem;font-weight:600;text-decoration:none;
 }
-.giris .baglar a::after{content:"\2192"}
-.giris .baglar a:hover{opacity:.88}
+.giris .baglar li a::after{content:"\2192"}
+.giris .baglar li a:hover,
+.giris .baglar li a:focus-visible{color:var(--marka-yazi);opacity:.88}
 .giris .ozellikler{
   list-style:none;padding:0;margin:0 0 30px;
   display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px;
@@ -344,7 +350,11 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;col
   color:var(--sonuk);cursor:pointer;
 }
 .tema-kutu button:hover{color:var(--metin)}
-.tema-kutu button[aria-pressed="true"]{background:var(--marka);color:var(--marka-yazi)}
+/* Secili dugmenin zemini marka rengi; hover kurali rengi `--metin` yapinca
+   koyu temada acik pembe zeminde acik gri yazi kaliyordu. Secili hal kendi
+   rengini hover'da da soyluyor. */
+.tema-kutu button[aria-pressed="true"],
+.tema-kutu button[aria-pressed="true"]:hover{background:var(--marka);color:var(--marka-yazi)}
 .tema-kutu button:focus-visible{outline:2px solid var(--marka);outline-offset:-3px}
 
 @media (max-width:600px){
@@ -760,25 +770,57 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;col
       yanKap.appendChild(kopya);
     }
 
-    if (!('IntersectionObserver' in window)) return;
-    var gorunen = {};
-    izleyici = new IntersectionObserver(function (girisler) {
-      for (var g = 0; g < girisler.length; g++) {
-        gorunen[girisler[g].target.id] = girisler[g].isIntersecting;
-      }
-      var etkin = null;
+    /* Etkin baslik KAYDIRMA KONUMUNDAN hesaplaniyor, kesisimden degil.
+     *
+     * Once IntersectionObserver kullaniliyordu ve gorus alaninin yalniz
+     * %8 ile %28 arasini dinliyordu. Uc kusuru vardi (2026-09-05 cihaz
+     * bulgusu, ekran goruntuleriyle): o dar bantta baslik yoksa HICBIRI
+     * isaretlenmiyordu; bant disinda kalan uzun bolumlerde yanlis baslik
+     * isaretli kaliyordu; sayfanin son basliklari o banda hic giremedigi
+     * icin ASLA isaretlenemiyordu.
+     *
+     * Yeni kural: "referans cizgisini gecmis son baslik etkindir". Cizgi
+     * sabit degil, kaydirma oraniyla asagi kayiyor: sayfanin basinda gorus
+     * alaninin ustune yakin, sonunda altina yakin. Boylece son ekrandaki
+     * basliklar da sirayla etkin olur ve HER an tam bir baslik isaretlidir.
+     */
+    var beklemede = false;
+
+    function etkiniIsaretle() {
+      beklemede = false;
+      var belge = document.documentElement;
+      var enFazla = belge.scrollHeight - window.innerHeight;
+      var kaydirma = window.pageYOffset || belge.scrollTop || 0;
+      var oran = enFazla > 0 ? Math.min(1, Math.max(0, kaydirma / enFazla)) : 0;
+      var cizgi = kaydirma + 90 + Math.max(0, window.innerHeight - 140) * oran;
+
+      var etkin = 0;
       for (var i = 0; i < h3ler.length; i++) {
-        if (gorunen[h3ler[i].id]) { etkin = h3ler[i].id; break; }
+        var ust = h3ler[i].getBoundingClientRect().top + kaydirma;
+        if (ust - 8 <= cizgi) etkin = i; else break;
       }
       for (var j = 0; j < baglar.length; j++) {
-        if (etkin && baglar[j].getAttribute('href') === '#' + etkin) {
-          baglar[j].setAttribute('aria-current', 'true');
-        } else {
-          baglar[j].removeAttribute('aria-current');
-        }
+        if (j === etkin) baglar[j].setAttribute('aria-current', 'true');
+        else baglar[j].removeAttribute('aria-current');
       }
-    }, { rootMargin: '-8% 0px -72% 0px' });
-    for (var m = 0; m < h3ler.length; m++) izleyici.observe(h3ler[m]);
+    }
+
+    function tazelemeIste() {
+      if (beklemede) return;
+      beklemede = true;
+      if (window.requestAnimationFrame) window.requestAnimationFrame(etkiniIsaretle);
+      else etkiniIsaretle();
+    }
+
+    window.addEventListener('scroll', tazelemeIste, { passive: true });
+    window.addEventListener('resize', tazelemeIste);
+    izleyici = {
+      disconnect: function () {
+        window.removeEventListener('scroll', tazelemeIste);
+        window.removeEventListener('resize', tazelemeIste);
+      }
+    };
+    etkiniIsaretle();
   }
 
   if (darEkran) {
