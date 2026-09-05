@@ -1,13 +1,13 @@
-# Aruna Gizlilik Politikası / Privacy Policy
+# Aruna
 
-**Sürüm / Version:** 1.0 · **Yürürlük / Effective:** 5 Eylül 2026 / 5 September 2026
-**İletişim / Contact:** destek@hb4.aleeas.com
-
-[Türkçe](#türkçe) · [English](#english)
+[Türkçe](#gizlilik-politikası) · [English](#privacy-policy)
 
 ---
 
-## Türkçe
+## Gizlilik Politikası
+
+**Sürüm:** 1.0 · **Yürürlük:** 5 Eylül 2026
+**İletişim:** destek@hb4.aleeas.com
 
 ### Özet
 
@@ -201,7 +201,10 @@ davranışını değiştiren bir güncelleme yayımlanırsa politika aynı sür�
 
 ---
 
-## English
+## Privacy Policy
+
+**Version:** 1.0 · **Effective:** 5 September 2026
+**Contact:** destek@hb4.aleeas.com
 
 ### Summary
 

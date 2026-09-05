@@ -1,21 +1,27 @@
 <!doctype html>
-<html lang="tr" class="yazi-bekliyor">
+<html lang="{{ site.varsayilan_dil }}" class="yazi-bekliyor">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.url == '/' %}Aruna{% else %}{{ page.title | default: 'Aruna' }}{% endif %}</title>
+<title>{{ page.title | default: 'Aruna' }}</title>
 <meta name="description" content="{{ page.aciklama | default: 'Aruna, gunluk ve not defteri icin bir Android uygulamasi. Hesap yok, sunucu yok, internet izni yok.' }}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Aruna">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="tr_TR">
-<meta property="og:title" content="{% if page.url == '/' %}Aruna{% else %}{{ page.title | default: 'Aruna' }}{% endif %}">
+<meta property="og:title" content="{{ page.title | default: 'Aruna' }}">
 <meta property="og:description" content="{{ page.aciklama | default: 'Aruna, gunluk ve not defteri icin bir Android uygulamasi. Hesap yok, sunucu yok, internet izni yok.' }}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">
 <link rel="canonical" href="{{ page.url | absolute_url }}">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f5f5">
+<meta name="theme-color" id="serit-rengi" media="(prefers-color-scheme: light)" content="#f5f5f5">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%238E2F3C'/%3E%3Cpath d='M7 5.5h8.5a1.5 1.5 0 0 1 1.5 1.5v11.5H8.5A1.5 1.5 0 0 1 7 17V5.5Z' fill='%23fff'/%3E%3Crect x='5.6' y='5.5' width='1.4' height='13' rx='0.5' fill='%23ffffff' opacity='0.55'/%3E%3C/svg%3E">
+
+<!-- Favicon, uygulamanin kendi simgesinin ta kendisi: glif app_logo_mark.dart
+     icindeki yollardan birebir cikarildi (govde 24..76 x 20..80, r=6; cilt izi
+     ve iki yazi satiri oyuk; kurdele 36..44 x 80,8..90,8). Zemin marka rengi
+     kArunaBrandColor. Kucultme carpani 0,62: yuvarlak karenin icinde
+     launcher'daki oranla ayni pay kaliyor. -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%238E2F3C'/%3E%3Cg transform='translate(19 17) scale(0.62)'%3E%3Cpath fill='%23ffffff' fill-rule='evenodd' d='M30 20H70a6 6 0 0 1 6 6v48a6 6 0 0 1-6 6H30a6 6 0 0 1-6-6V26a6 6 0 0 1 6-6ZM31 20h2.5v60H31ZM40 35h28v4.5H40ZM40 43.5h20V48H40ZM36 80.8h8v10l-4-3.75-4 3.75Z'/%3E%3C/g%3E%3C/svg%3E">
 
 <!-- crossorigin sart, ayni kokende bile: yazi tipi istekleri anonim modda
      gider ve bayraksiz on yukleme eslesmez, dosya ikinci kez inerdi.
@@ -35,34 +41,61 @@
    sinifi asagidaki betik kaldirir, betik kosmazsa <noscript> iptal eder. */
 .yazi-bekliyor{visibility:hidden}
 
+/* --- Renkler --------------------------------------------------------------
+ *
+ * Iki palet bir kez TANIMLANIR, uc secicide ATANIR. Ucuncu hal onemli:
+ * okuyucunun tema secimi yoksa kok elemanda hicbir isaret olmaz ve yalniz
+ * prefers-color-scheme konusur; secim varsa `data-tema` isareti onu yener.
+ * Bir rengin tek tanimi medya sorgusunun icinde kalirsa isaretsiz durumda hic
+ * uygulanmaz; o yuzden degerler burada, atamalar asagida.
+ */
 :root{
-  color-scheme:light;
-  --bg:#f5f5f5;
-  --yuzey:#ffffff;
-  --metin:#313131;
-  --sonuk:#686868;
-  --cizgi:#d8d8d8;
-  --olcu:760px;
+  --a-bg:#f5f5f5;
+  --a-yuzey:#ffffff;
+  --a-metin:#313131;
+  --a-sonuk:#686868;
+  --a-cizgi:#d8d8d8;
   /* Aruna'nin marka rengi. Uygulamadaki tek kaynak kArunaBrandColor
      (app_logo_mark.dart). Acik zeminde kontrast 7.35: rahat okunur. */
-  --marka:#8E2F3C;
-  --marka-zemin:rgba(142,47,60,.08);
-  --marka-cizgi:rgba(142,47,60,.28);
+  --a-marka:#8E2F3C;
+  --a-marka-zemin:rgba(142,47,60,.08);
+  --a-marka-cizgi:rgba(142,47,60,.28);
+  --a-marka-yazi:#ffffff;
+
+  --k-bg:#000000;
+  --k-yuzey:#141414;
+  --k-metin:#d7d7d7;
+  --k-sonuk:#9d9d9d;
+  --k-cizgi:#2a2a2a;
+  /* Ayni bordo koyu zeminde 2.62'ye dusuyor, yani okunmuyor. Aciga cekilmis
+     ton 7.68 veriyor ve marka kimligini koruyor (olculdu 2026-09-05). */
+  --k-marka:#D98494;
+  --k-marka-zemin:rgba(217,132,148,.10);
+  --k-marka-cizgi:rgba(217,132,148,.30);
+  --k-marka-yazi:#180c0f;
+}
+:root,:root[data-tema="acik"]{
+  color-scheme:light;
+  --bg:var(--a-bg); --yuzey:var(--a-yuzey); --metin:var(--a-metin);
+  --sonuk:var(--a-sonuk); --cizgi:var(--a-cizgi); --marka:var(--a-marka);
+  --marka-zemin:var(--a-marka-zemin); --marka-cizgi:var(--a-marka-cizgi);
+  --marka-yazi:var(--a-marka-yazi);
 }
 @media (prefers-color-scheme:dark){
-  :root{
+  :root:not([data-tema="acik"]){
     color-scheme:dark;
-    --bg:#000000;
-    --yuzey:#141414;
-    --metin:#d7d7d7;
-    --sonuk:#9d9d9d;
-    --cizgi:#2a2a2a;
-    /* Ayni bordo koyu zeminde 2.62'ye dusuyor, yani okunmuyor. Aciga cekilmis
-       ton 7.68 veriyor ve marka kimligini koruyor (olculdu 2026-09-05). */
-    --marka:#D98494;
-    --marka-zemin:rgba(217,132,148,.10);
-    --marka-cizgi:rgba(217,132,148,.30);
+    --bg:var(--k-bg); --yuzey:var(--k-yuzey); --metin:var(--k-metin);
+    --sonuk:var(--k-sonuk); --cizgi:var(--k-cizgi); --marka:var(--k-marka);
+    --marka-zemin:var(--k-marka-zemin); --marka-cizgi:var(--k-marka-cizgi);
+    --marka-yazi:var(--k-marka-yazi);
   }
+}
+:root[data-tema="koyu"]{
+  color-scheme:dark;
+  --bg:var(--k-bg); --yuzey:var(--k-yuzey); --metin:var(--k-metin);
+  --sonuk:var(--k-sonuk); --cizgi:var(--k-cizgi); --marka:var(--k-marka);
+  --marka-zemin:var(--k-marka-zemin); --marka-cizgi:var(--k-marka-cizgi);
+  --marka-yazi:var(--k-marka-yazi);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -79,26 +112,41 @@ body{
   line-height:1.65;
 }
 main{flex:1}
-.kap{width:min(var(--olcu),calc(100% - 40px));margin-inline:auto}
-.genis{width:min(1140px,calc(100% - 40px))}
+
+/* --- Olcu ----------------------------------------------------------------
+ *
+ * Sayfanin her seridi (ust cubuk, govde, alt bilgi) AYNI kaba oturur; boylece
+ * sol ve sag bosluklar hem kendi iclerinde esit hem de seritler arasinda ayni
+ * olur. Belge sayfasinin kabi yan sutunu da kapsar: 232 + 52 + 760 = 1044.
+ * Giris sayfasinda yan sutun yok, kap metin genisligi kadar.
+ */
+.belge{--kap:1044px}
+.giris{--kap:760px}
+.kap{width:min(var(--kap),calc(100% - 40px));margin-inline:auto}
 
 a{color:inherit;text-underline-offset:.18em}
 a:focus-visible{outline:2px solid var(--marka);outline-offset:3px;border-radius:2px}
 .govde a:not(.cengel){text-decoration-color:var(--marka-cizgi);text-decoration-thickness:1.5px}
 .govde a:not(.cengel):hover{color:var(--marka);text-decoration-color:var(--marka)}
 
-header{padding:30px 0 0}
-header .kap,header .genis{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+/* --- Ust cubuk ----------------------------------------------------------- */
+header{padding:26px 0 0}
+.ust{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .marka{
+  display:inline-flex;align-items:center;gap:9px;
   font-family:'Sekuya',system-ui,-apple-system,"Segoe UI",sans-serif;
   font-size:1.15rem; letter-spacing:.05em;
   text-decoration:none;
 }
-header nav{display:flex;align-items:center;gap:16px}
-header nav a{font-size:.92rem;color:var(--sonuk);text-decoration:none}
-header nav a:hover{color:var(--metin);text-decoration:underline}
+/* Simge markanin parcasi: rengini metinden DEGIL markadan alir, boylece iki
+   temada da kimligini koruyor. */
+.marka-simge{width:1.3em;height:1.3em;flex:none;color:var(--marka);display:block}
+.marka:hover{color:var(--marka)}
+.ust-sag{display:flex;align-items:center;gap:18px}
+.ust-sag>a{font-size:.92rem;color:var(--sonuk);text-decoration:none}
+.ust-sag>a:hover{color:var(--metin);text-decoration:underline}
 
-/* Dil anahtari. Betik olusturuyor: calismazsa gorunmez ve iki dil de
+/* Dil anahtari. Betik olusturuyor: calismazsa gorunmez ve butun diller
    govdede alt alta durur, yani icerik hicbir durumda kaybolmaz. */
 .dil{display:inline-flex;border:1px solid var(--cizgi);border-radius:999px;overflow:hidden;background:var(--yuzey)}
 .dil button{
@@ -107,16 +155,16 @@ header nav a:hover{color:var(--metin);text-decoration:underline}
   cursor:pointer;
 }
 .dil button:hover{color:var(--metin)}
-.dil button[aria-pressed="true"]{background:var(--marka);color:#ffffff}
-@media (prefers-color-scheme:dark){.dil button[aria-pressed="true"]{color:#180c0f}}
+.dil button[aria-pressed="true"]{background:var(--marka);color:var(--marka-yazi)}
 .dil button:focus-visible{outline:2px solid var(--marka);outline-offset:-3px}
 
-.govde{padding:52px 0 72px}
+/* --- Tipografi ----------------------------------------------------------- */
+.govde{padding:46px 0 72px}
 .govde>:first-child{margin-top:0}
 
 h1,h2,h3,code{overflow-wrap:break-word}
 h1{margin:0;font-size:clamp(1.9rem,1.45rem + 1.8vw,2.5rem);line-height:1.22;letter-spacing:-.018em;font-weight:700;text-wrap:balance}
-h2{margin:52px 0 0;padding-top:22px;border-top:1px solid var(--cizgi);font-size:1.45rem;line-height:1.25;letter-spacing:-.012em;font-weight:700}
+h2{margin:52px 0 0;padding-top:22px;border-top:1px solid var(--cizgi);font-size:1.45rem;line-height:1.25;letter-spacing:-.012em;font-weight:700;scroll-margin-top:22px}
 h3{margin:32px 0 6px;font-size:1.05rem;line-height:1.3;font-weight:700;scroll-margin-top:22px}
 p{margin:0 0 14px}
 strong{font-weight:700}
@@ -140,35 +188,35 @@ h2:hover .cengel,h3:hover .cengel,.cengel:focus-visible{opacity:1}
 @media (prefers-reduced-motion:reduce){.cengel{transition:none}}
 @media (hover:none){.cengel{opacity:.4}}
 
-/* Kaynakta surum ve iletisim ayri satirlardir; Markdown ikisini tek paragrafa
-   alir ve satir sonunu korur, pre-line o satiri geri verir. */
-.belge .govde>h1+p{
-  margin:16px 0 8px;
+/* Kunye: surum, yururluk ve iletisim. Her dil bolumunun kendi kunyesi var
+   (Faz 4.2); once sayfanin tepesinde iki dilde birden duruyorlardi. Kaynakta
+   iki ayri satir, Markdown ikisini tek paragrafa alip satir sonunu korur ve
+   pre-line o satiri geri verir. */
+.kunye{
+  margin:14px 0 4px;
   font-size:.92rem;line-height:1.6;color:var(--sonuk);
   font-variant-numeric:tabular-nums;
   white-space:pre-line;
 }
-.belge .govde>h1+p strong{color:var(--metin);font-weight:600}
-.belge .govde>h1+p+p{margin:0;font-size:.92rem;color:var(--sonuk)}
-.belge .govde>h1+p+p+hr{margin-top:22px}
+.kunye strong{color:var(--metin);font-weight:600}
 /* Ilk dil basligi, hemen ustundeki <hr> ile ikinci bir cizgi cikarmasin. */
-.belge .govde section[data-dil]>h2:first-child{border-top:0;padding-top:0;margin-top:26px}
+.govde section[data-dil]>h2:first-child{border-top:0;padding-top:0;margin-top:22px}
 
-/* --- Belge duzeni: solda icindekiler, sagda metin --- */
+/* --- Belge duzeni: solda icindekiler, sagda metin ------------------------- */
 .duzen{
-  width:min(1140px,calc(100% - 40px));margin-inline:auto;
+  width:min(var(--kap),calc(100% - 40px));margin-inline:auto;
   display:grid;grid-template-columns:232px minmax(0,1fr);gap:0 52px;
   align-items:start;
 }
-.duzen>main{width:100%;max-width:var(--olcu);min-width:0}
+.duzen>main{min-width:0}
 
-.icindekiler{position:sticky;top:26px;padding:52px 0 24px;font-size:.9rem}
+.icindekiler{position:sticky;top:26px;padding:46px 0 24px;font-size:.9rem}
 .icindekiler:empty{display:none}
 .icindekiler .yan-baslik{
   font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;
   color:var(--sonuk);margin:0 0 12px;font-weight:600;
 }
-.icindekiler ol{list-style:none;margin:0;padding:0;max-height:calc(100vh - 140px);overflow-y:auto}
+.icindekiler ol{list-style:none;margin:0;padding:0;max-height:calc(100vh - 150px);overflow-y:auto}
 .icindekiler li{margin:0}
 .icindekiler a{
   display:block;padding:5px 0 5px 13px;
@@ -177,15 +225,25 @@ h2:hover .cengel,h3:hover .cengel,.cengel:focus-visible{opacity:1}
 }
 .icindekiler a:hover{color:var(--metin);border-left-color:var(--sonuk)}
 .icindekiler a[aria-current="true"]{color:var(--marka);border-left-color:var(--marka);font-weight:600}
-/* Genis ekranda katlama yok: liste hep acik dursun. */
+/* Genis ekranda katlama yok: ozet gizli, liste hep acik. Kutunun KENDISI de
+   acik kalmali; kapali bir <details> icindeki liste, ozeti gizlense bile
+   cizilmez. Betik kutuyu genis ekranda open ile kuruyor. */
 .icindekiler details>summary{display:none}
+
+/* Yan sutunun altindaki kunye: sayfanin kimligi metnin icinde tekrar etmesin
+   diye burada da duruyor ve dil ile birlikte degisiyor. */
+.yan-kunye{
+  margin:18px 0 0;padding-top:14px;border-top:1px solid var(--cizgi);
+  font-size:.8rem;line-height:1.55;color:var(--sonuk);
+  white-space:pre-line;
+}
 
 /* Dar ekran: yan sutun kalkar, icindekiler metnin ustunde katlanir listeye doner. */
 @media (max-width:940px){
-  .duzen{display:block;width:min(var(--olcu),calc(100% - 40px))}
-  .duzen>main{max-width:none}
+  .duzen{display:block;width:min(760px,calc(100% - 40px))}
   .icindekiler{position:static;padding:24px 0 0;border-bottom:1px solid var(--cizgi)}
   .icindekiler .yan-baslik{display:none}
+  .icindekiler .yan-kunye{display:none}
   .icindekiler details>summary{
     display:block;cursor:pointer;list-style:none;padding:9px 0;
     color:var(--sonuk);font-size:.88rem;letter-spacing:.02em;
@@ -222,54 +280,100 @@ h2:hover .cengel,h3:hover .cengel,.cengel:focus-visible{opacity:1}
   .izin-listesi li{grid-template-columns:1fr;gap:5px}
 }
 
-.giris .govde{padding-top:76px}
+/* --- Giris sayfasi ------------------------------------------------------- */
+.giris .govde{padding-top:60px}
 .giris h1{
   font-family:'Sekuya',system-ui,-apple-system,"Segoe UI",sans-serif;
   font-weight:400;letter-spacing:.04em;line-height:1.3;
   font-size:clamp(2.1rem,1.6rem + 2.2vw,2.9rem);
 }
-.giris .govde>h1+p{margin:22px 0 14px}
-.giris .govde>h1+p+p{color:var(--sonuk)}
-.giris .govde ul{list-style:none;padding:0;margin:34px 0 24px}
-.giris .govde li{margin:0}
-.giris .govde li a{font-weight:600;text-decoration-thickness:1px}
-.giris .govde li a::after{content:" \2192";color:var(--marka)}
-.giris .govde>ul+p{font-size:.94rem;color:var(--sonuk)}
+/* Giriste dil basliklari yalnizca dilin adini soyluyor ve ayni bilgi dil
+   anahtarinda zaten var; betik onlari gizliyor. Betik kosmazsa gorunurler ve
+   alt alta duran dilleri birbirinden ayirirlar, yani gerekliler. */
+.giris .govde h2{margin-top:46px}
+.giris .govde section[data-dil]>h2:first-child{margin-top:0}
+.giris .tanit{font-size:1.1rem;line-height:1.6;margin:18px 0 26px}
+.giris .ozellikler{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:12px}
+.giris .ozellikler li{
+  margin:0;padding:15px 18px;
+  background:var(--yuzey);border:1px solid var(--cizgi);border-radius:10px;
+}
+.giris .ozellikler strong{color:var(--marka);font-size:.95rem}
+.giris .baglar{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;margin:0 0 16px;padding:0;list-style:none}
+.giris .baglar li{margin:0}
+.giris .baglar a{font-weight:600;text-decoration-thickness:1px}
+.giris .baglar a::after{content:" \2192";color:var(--marka)}
+.giris .destek{font-size:.94rem;color:var(--sonuk);margin:0}
 
-footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:20px 0 40px;color:var(--sonuk);font-size:.88rem}
+/* --- Alt bilgi ----------------------------------------------------------- */
+footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;color:var(--sonuk);font-size:.88rem}
+.alt{display:flex;justify-content:space-between;align-items:flex-start;gap:18px 32px;flex-wrap:wrap}
+.alt-sol{min-width:0;max-width:48ch}
+.alt-telif{margin:0 0 5px}
+.alt-not{margin:0}
+.alt-sag{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.alt-baglar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+.alt-baglar a{color:var(--sonuk);text-decoration:none}
+.alt-baglar a:hover{color:var(--metin);text-decoration:underline}
+.alt-gh{display:inline-flex}
+.alt-gh svg{display:block;width:19px;height:19px}
+.alt-gh:hover{color:var(--metin)}
+
+/* Tema secici: uc hal. Betik olusturur; betiksiz sayfa yine isletim
+   sisteminin temasini izler, yani secim yoklugu bir kayip degil. */
+.tema{display:inline-flex;align-items:center;gap:8px}
+.tema-baslik{font-size:.8rem;color:var(--sonuk)}
+.tema-kutu{display:inline-flex;border:1px solid var(--cizgi);border-radius:999px;overflow:hidden;background:var(--yuzey)}
+.tema-kutu button{
+  font:inherit;font-size:.8rem;padding:4px 11px;border:0;background:transparent;
+  color:var(--sonuk);cursor:pointer;
+}
+.tema-kutu button:hover{color:var(--metin)}
+.tema-kutu button[aria-pressed="true"]{background:var(--marka);color:var(--marka-yazi)}
+.tema-kutu button:focus-visible{outline:2px solid var(--marka);outline-offset:-3px}
 
 @media (max-width:600px){
-  header{padding-top:22px}
-  .govde{padding:36px 0 52px}
-  .giris .govde{padding-top:48px}
+  header{padding-top:20px}
+  .govde{padding:34px 0 52px}
+  .giris .govde{padding-top:38px}
   h2{margin-top:40px}
+  .alt{flex-direction:column}
+  .alt-sag{align-items:flex-start}
+  .alt-baglar{justify-content:flex-start}
 }
 
 @media print{
   header,footer,.icindekiler,.cengel{display:none}
   body{background:#fff;color:#000;font-size:10.5pt;line-height:1.5}
-  .kap,.genis{width:auto}
+  .kap{width:auto}
   .duzen{display:block;width:auto}
   .govde{padding:0}
   .ozet{border:1px solid #999;border-left-width:3px;background:transparent}
   h2,h3{break-after:avoid}
-  /* Kagida iki dil de basilir: dil secimi ekranin isi, kagidin degil. */
+  /* Kagida butun diller basilir: dil secimi ekranin isi, kagidin degil. */
   section[data-dil]{display:block !important}
 }
 </style>
-<noscript><style>.yazi-bekliyor{visibility:visible}</style></noscript>
+
 <script>
-/* Gizleme HTML'de acik, buradan kaldiriliyor: betik hata alsa da asagidaki uc
-   yoldan biri sayfayi acar. document.fonts.load'a metin vermek sart, metinsiz
-   cagri yalnizca bosluk karakterini kapsayan dosyayi indirir. */
+/* Tema secimi ve yazi tipi bekleyisi: ikisi de ilk kareden ONCE calismali.
+   Tema sonradan uygulanirsa sayfa bir an yanlis renkle cizilir. */
 (function () {
   var kok = document.documentElement;
+  try {
+    var secim = window.localStorage.getItem('aruna-tema');
+    if (secim === 'acik' || secim === 'koyu') kok.setAttribute('data-tema', secim);
+  } catch (e) { /* gizli sekme: sistem temasi kalir */ }
+
   var acildi = false;
   function ac() {
     if (acildi) return;
     acildi = true;
     kok.className = kok.className.replace(/\byazi-bekliyor\b/g, '').trim();
   }
+  /* Gizleme HTML'de acik, buradan kaldiriliyor: betik hata alsa da asagidaki
+     uc yoldan biri sayfayi acar. document.fonts.load'a metin vermek sart,
+     metinsiz cagri yalnizca bosluk karakterini kapsayan dosyayi indirir. */
   if (!document.fonts || !document.fonts.load || !window.Promise) { ac(); return; }
   try {
     Promise.all([
@@ -283,22 +387,30 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:20px 0 40px;col
 </script>
 </head>
 <body class="{% if page.url contains 'gizlilik' %}belge{% else %}giris{% endif %}">
+{% assign ilk_dil = site.diller | first %}
 
-{% comment %}
-Giris sayfasinda ust cubuk yok: adi zaten h1 soyluyor, politika bagi da
-govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
-{% endcomment %}
-{% if page.url contains 'gizlilik' %}
 <header>
-  <div class="genis">
-    <a class="marka" href="{{ '/' | relative_url }}">Aruna</a>
-    <nav>
+  <div class="kap ust">
+    <a class="marka" href="{{ '/' | relative_url }}">
+      <!-- Uygulamanin simgesi, app_logo_mark.dart icindeki yollardan birebir.
+           Ust cubukta zeminsiz duruyor: glif tek basina. -->
+      <svg class="marka-simge" viewBox="22 17 56 77" aria-hidden="true" focusable="false">
+        <path fill="currentColor" fill-rule="evenodd" d="M30 20H70a6 6 0 0 1 6 6v48a6 6 0 0 1-6 6H30a6 6 0 0 1-6-6V26a6 6 0 0 1 6-6ZM31 20h2.5v60H31ZM40 35h28v4.5H40ZM40 43.5h20V48H40ZM36 80.8h8v10l-4-3.75-4 3.75Z"/>
+      </svg>
+      <span>Aruna</span>
+    </a>
+    <nav class="ust-sag">
+      {% if page.url contains 'gizlilik' %}
+      <a href="{{ '/' | relative_url }}" data-metin="nav_ana">{{ ilk_dil.nav_ana }}</a>
+      {% else %}
+      <a href="{{ '/gizlilik/' | relative_url }}" data-metin="nav_gizlilik">{{ ilk_dil.nav_gizlilik }}</a>
+      {% endif %}
       <div class="dil" id="dil-anahtari" hidden></div>
-      <a href="{{ '/' | relative_url }}">Ana sayfa</a>
     </nav>
   </div>
 </header>
 
+{% if page.url contains 'gizlilik' %}
 <div class="duzen">
 <aside class="icindekiler" id="icindekiler"></aside>
 <main class="govde">
@@ -312,41 +424,142 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
 {% endif %}
 
 <footer>
-  <div class="kap">Aruna · bağımsız geliştirici</div>
+  <div class="kap alt">
+    <div class="alt-sol">
+      <p class="alt-telif">&copy; {{ site.telif_yili }} {{ site.gelistirici }} &middot; <span data-metin="footer_hak">{{ ilk_dil.footer_hak }}</span></p>
+      <p class="alt-not" data-metin="footer_not">{{ ilk_dil.footer_not }}</p>
+    </div>
+    <div class="alt-sag">
+      <nav class="alt-baglar">
+        {% unless page.url contains 'gizlilik' %}
+        <a href="{{ '/gizlilik/' | relative_url }}" data-metin="nav_gizlilik">{{ ilk_dil.nav_gizlilik }}</a>
+        {% endunless %}
+        <a href="{{ site.gelistirici_sitesi }}" rel="noopener" data-metin="footer_site">{{ ilk_dil.footer_site }}</a>
+        <a href="mailto:{{ site.destek_adresi }}" data-metin="footer_iletisim">{{ ilk_dil.footer_iletisim }}</a>
+        <a class="alt-gh" href="{{ site.github }}" rel="me noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+        </a>
+      </nav>
+      <div class="tema" id="tema-anahtari" hidden></div>
+    </div>
+  </div>
 </footer>
 
-{% if page.url contains 'gizlilik' %}
 <script>
-/* Politika sayfasinin SUNUM katmani.
+/* Sayfanin SUNUM katmani.
  *
- * Degismez kural: METNE DOKUNULMAZ. Politikanin kaynagi uygulama deposundaki
- * docs/gizlilik_politikasi.md, buradaki gizlilik.md onun birebir kopyasi ve
- * ikisinin ayni kaldigi bir diff komutuyla olculuyor. Bu betik yalnizca var
- * olan basliklari, paragraflari ve listeleri yeniden duzenler; hicbir cumle
- * uretmez, hicbir cumleyi degistirmez.
+ * Degismez kural: GOVDENIN METNINE DOKUNULMAZ. Politikanin kaynagi uygulama
+ * deposundaki docs/gizlilik_politikasi.md, buradaki gizlilik.md onun birebir
+ * kopyasi ve ikisinin ayni kaldigi bir diff komutuyla olculuyor. Bu betik
+ * yalnizca var olan basliklari, paragraflari ve listeleri yeniden duzenler;
+ * govdede hicbir cumle uretmez, hicbir cumleyi degistirmez. Kabuk metinleri
+ * (ust cubuk, alt bilgi, dil ve tema etiketleri) govdenin disindadir ve
+ * _config.yml'den gelir.
  *
- * Beklenen yapi: govdenin dogrudan altinda IKI <h2> (Turkce ve English),
- * her birinin altinda <h3> konu basliklari. Yapi bundan farkliysa betik
- * hicbir sey yapmadan CIKAR ve sayfa bugunku duz haliyle kalir. Ayni sey
- * JavaScript kapaliyken de gecerlidir: iki dil alt alta gorunur, yani
- * icerik hicbir durumda kaybolmaz.
+ * Beklenen yapi: govdenin dogrudan altinda DIL SAYISI kadar <h2>, her birinin
+ * altinda konu basliklari. Yapi bundan farkliysa betik govdeye hic dokunmadan
+ * cikar ve sayfa duz haliyle kalir; ayni sey JavaScript kapaliyken de gecerli,
+ * yani icerik hicbir durumda kaybolmaz.
  */
 (function () {
   'use strict';
 
+  var DILLER = {{ site.diller | jsonify }};
+  var VARSAYILAN = {{ site.varsayilan_dil | jsonify }};
+  var DIL_ANAHTARI = 'aruna-dil';
+  var TEMA_ANAHTARI = 'aruna-tema';
+  if (!DILLER || !DILLER.length) return;
+
+  function kayittanOku(ad) {
+    try { return window.localStorage.getItem(ad); } catch (e) { return null; }
+  }
+  function kayitYaz(ad, deger) {
+    try { window.localStorage.setItem(ad, deger); } catch (e) { /* gizli sekme */ }
+  }
+
+  /* --- Tema secici ------------------------------------------------------- */
+  /* Uc hal: sistem (isaret yok), acik, koyu. Erken betik secimi zaten
+     uygulamisti; buradaki is yalnizca dugmeleri kurmak. */
+  var temaKap = document.getElementById('tema-anahtari');
+  var temaDugmeleri = {};
+  var TEMALAR = ['sistem', 'acik', 'koyu'];
+
+  function temaUygula(deger, kaydet) {
+    var kok = document.documentElement;
+    if (deger === 'sistem') kok.removeAttribute('data-tema');
+    else kok.setAttribute('data-tema', deger);
+    for (var i = 0; i < TEMALAR.length; i++) {
+      var dugme = temaDugmeleri[TEMALAR[i]];
+      if (dugme) dugme.setAttribute('aria-pressed', String(TEMALAR[i] === deger));
+    }
+    /* Tarayici serit rengi medya sorgusuna bagli; secim onu yendiginde serit
+       de degismeli, yoksa koyu sayfanin ustunde acik bir cubuk kalir. */
+    var serit = document.getElementById('serit-rengi');
+    if (serit) {
+      if (deger === 'sistem') {
+        serit.setAttribute('media', '(prefers-color-scheme: light)');
+        serit.setAttribute('content', '#f5f5f5');
+      } else {
+        serit.removeAttribute('media');
+        serit.setAttribute('content', deger === 'koyu' ? '#000000' : '#f5f5f5');
+      }
+    }
+    if (kaydet) kayitYaz(TEMA_ANAHTARI, deger);
+  }
+
+  function temaKur(dil) {
+    if (!temaKap) return;
+    temaKap.textContent = '';
+    temaDugmeleri = {};
+    var baslik = document.createElement('span');
+    baslik.className = 'tema-baslik';
+    baslik.textContent = dil.tema;
+    var kutu = document.createElement('div');
+    kutu.className = 'tema-kutu';
+    var etiketler = { sistem: dil.tema_sistem, acik: dil.tema_acik, koyu: dil.tema_koyu };
+    TEMALAR.forEach(function (ad) {
+      var dugme = document.createElement('button');
+      dugme.type = 'button';
+      dugme.textContent = etiketler[ad];
+      dugme.addEventListener('click', function () { temaUygula(ad, true); });
+      kutu.appendChild(dugme);
+      temaDugmeleri[ad] = dugme;
+    });
+    temaKap.appendChild(baslik);
+    temaKap.appendChild(kutu);
+    temaKap.hidden = false;
+    var kayitli = kayittanOku(TEMA_ANAHTARI);
+    temaUygula(kayitli === 'acik' || kayitli === 'koyu' ? kayitli : 'sistem', false);
+  }
+
+  /* --- Kabuk metinleri ---------------------------------------------------- */
+  /* Ust cubuk ve alt bilgideki her metnin karsiligi _config.yml'de duruyor;
+     eleman hangi anahtari istedigini data-metin ile soyluyor. */
+  function kabugaDilVer(dil) {
+    var alanlar = document.querySelectorAll('[data-metin]');
+    for (var i = 0; i < alanlar.length; i++) {
+      var anahtar = alanlar[i].getAttribute('data-metin');
+      if (Object.prototype.hasOwnProperty.call(dil, anahtar)) {
+        alanlar[i].textContent = dil[anahtar];
+      }
+    }
+  }
+
+  /* --- Govde -------------------------------------------------------------- */
   var main = document.querySelector('main.govde');
-  if (!main) return;
+  var h2ler = main ? main.querySelectorAll(':scope > h2') : [];
 
-  var h2ler = main.querySelectorAll(':scope > h2');
-  if (h2ler.length !== 2) return;   /* beklenen yapi degil: dokunma */
+  /* Dil basina bir bolum bekleniyor. Sayi tutmuyorsa govdeye dokunulmaz ama
+     tema secici yine kurulur: o govdeden bagimsiz. */
+  if (!main || h2ler.length !== DILLER.length) {
+    /* Kabuk metinleri sablonda varsayilan dilde yazili; tema secici de ayni
+       dilde kurulmali, yoksa alt bilgi Ingilizce dururken dugmeler Turkce
+       cikar. */
+    temaKur(dilBul(VARSAYILAN) || DILLER[0]);
+    return;
+  }
 
-  var DILLER = [
-    { kod: 'tr', kisa: 'TR', etiket: 'Türkçe', yan: 'Bölümler', katla: 'İçindekiler' },
-    { kod: 'en', kisa: 'EN', etiket: 'English', yan: 'Sections', katla: 'Contents' }
-  ];
-  var ANAHTAR = 'aruna-dil';
-
-  /* --- 1) Iki dili kendi bolumune al --- */
+  /* --- 1) Her dili kendi bolumune al -------------------------------------- */
   function bolumYap(bas, son, kod) {
     var bolum = document.createElement('section');
     bolum.setAttribute('data-dil', kod);
@@ -362,26 +575,48 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
 
   var yer = document.createComment('diller');
   main.insertBefore(yer, h2ler[0]);
-  var trBolum = bolumYap(h2ler[0], h2ler[1], 'tr');
-  var enBolum = bolumYap(h2ler[1], null, 'en');
-  main.insertBefore(trBolum, yer);
-  main.insertBefore(enBolum, yer);
+  var bolumler = {};
+  for (var i = 0; i < DILLER.length; i++) {
+    var bolum = bolumYap(h2ler[i], h2ler[i + 1] || null, DILLER[i].kod);
+    bolumler[DILLER[i].kod] = bolum;
+    main.insertBefore(bolum, yer);
+  }
   main.removeChild(yer);
 
-  var bolumler = { tr: trBolum, en: enBolum };
+  /* Baslik yalnizca dilin ADIYSA gizlenir: ayni bilgi dil anahtarinda zaten
+     var. Politika sayfasinda baslik "Gizlilik Politikasi"dir ve kalir; giris
+     sayfasinda "Turkce" yazar ve tekrar olurdu. */
+  DILLER.forEach(function (dil) {
+    var h2 = bolumler[dil.kod].querySelector('h2');
+    if (h2 && h2.textContent.trim() === dil.etiket) h2.hidden = true;
+  });
 
   /* Kaynaktaki "Türkçe · English" bag satiri artik anahtarin isi. */
   var ustParagraflar = main.querySelectorAll(':scope > p');
-  for (var i = 0; i < ustParagraflar.length; i++) {
-    if (ustParagraflar[i].querySelectorAll('a[href^="#"]').length === 2) {
-      ustParagraflar[i].hidden = true;
+  for (var u = 0; u < ustParagraflar.length; u++) {
+    if (ustParagraflar[u].querySelectorAll('a[href^="#"]').length === DILLER.length) {
+      ustParagraflar[u].hidden = true;
       break;
     }
   }
 
-  /* --- 2) Ozet bolumunu karta al --- */
-  ['tr', 'en'].forEach(function (kod) {
-    var bolum = bolumler[kod];
+  /* --- 2) Kunye: dil basligindan hemen sonraki paragraf -------------------- */
+  /* Surum, yururluk ve iletisim satirlari her dilin kendi bolumunde duruyor.
+     Isaretlemenin tek sebebi bicim; metin degismiyor. */
+  var kunyeler = {};
+  DILLER.forEach(function (dil) {
+    var h2 = bolumler[dil.kod].querySelector('h2');
+    if (!h2) return;
+    var sonraki = h2.nextElementSibling;
+    if (sonraki && sonraki.tagName === 'P' && sonraki.querySelector('strong')) {
+      sonraki.className = 'kunye';
+      kunyeler[dil.kod] = sonraki;
+    }
+  });
+
+  /* --- 3) Ozet bolumunu karta al ------------------------------------------ */
+  DILLER.forEach(function (dil) {
+    var bolum = bolumler[dil.kod];
     var ilkH3 = bolum.querySelector('h3');
     if (!ilkH3) return;
     var kart = document.createElement('div');
@@ -396,16 +631,16 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
     }
   });
 
-  /* --- 3) Izin listesini iki sutuna hizala --- */
-  ['tr', 'en'].forEach(function (kod) {
-    var listeler = bolumler[kod].querySelectorAll('ul');
+  /* --- 4) Izin listesini iki sutuna hizala -------------------------------- */
+  DILLER.forEach(function (dil) {
+    var listeler = bolumler[dil.kod].querySelectorAll('ul');
     for (var i = 0; i < listeler.length; i++) {
       var ogeler = listeler[i].children;
       if (!ogeler.length) continue;
 
       /* Yalniz "izin adi + aciklama" bicimindeki liste donusturulur: her
-         maddenin ilk dugumu bir <code> olmali. Politikadaki oteki listeler
-         (varsa) oldugu gibi kalir. */
+         maddenin ilk dugumu bir <code> olmali. Oteki listeler oldugu gibi
+         kalir. */
       var hepsiIzin = true;
       for (var j = 0; j < ogeler.length; j++) {
         var ilk = ogeler[j].firstElementChild;
@@ -421,8 +656,8 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
         var oge = ogeler[k];
         var adEtiketi = oge.firstElementChild;
         var sarma = document.createElement('span');
-        var d = adEtiketi.nextSibling;
-        while (d) { var s = d.nextSibling; sarma.appendChild(d); d = s; }
+        var dugum = adEtiketi.nextSibling;
+        while (dugum) { var sonraki = dugum.nextSibling; sarma.appendChild(dugum); dugum = sonraki; }
         /* Kaynakta "KOD - aciklama" yaziyor. Ad kendi hucresine gectigi icin
            bastaki ayrac artik gorsel gurultu; metin degismiyor, kirpiliyor. */
         if (sarma.firstChild && sarma.firstChild.nodeType === 3) {
@@ -433,7 +668,7 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
     }
   });
 
-  /* --- 4) Basliklara kalici bag --- */
+  /* --- 5) Basliklara kalici bag ------------------------------------------- */
   var basliklar = main.querySelectorAll('section[data-dil] h2[id], section[data-dil] h3[id]');
   for (var b = 0; b < basliklar.length; b++) {
     var cengel = document.createElement('a');
@@ -445,27 +680,41 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
     basliklar[b].appendChild(cengel);
   }
 
-  /* --- 5) Icindekiler --- */
+  /* --- 6) Icindekiler ----------------------------------------------------- */
   var yanKap = document.getElementById('icindekiler');
   var izleyici = null;
+  var darEkran = window.matchMedia ? window.matchMedia('(max-width:940px)') : null;
+  var katlaKutusu = null;
+
+  /* Kapali bir <details> icindeki liste, ozeti CSS ile gizlense bile
+     CIZILMEZ. Genis ekranda ozet gizli oldugu icin kutunun kendisi ACIK
+     baslamak zorunda; yoksa yan sutunda yalniz baslik kalir ve butun baglar
+     gorunmez olur (2026-09-05 cihaz bulgusu: DOM'da doluydu, ekranda yoktu). */
+  function katlamaAyarla() {
+    if (!katlaKutusu) return;
+    katlaKutusu.open = !(darEkran && darEkran.matches);
+  }
 
   function icindekilerKur(kod) {
     if (!yanKap) return;
     yanKap.textContent = '';
+    katlaKutusu = null;
     if (izleyici) { izleyici.disconnect(); izleyici = null; }
 
-    var dil = kod === 'tr' ? DILLER[0] : DILLER[1];
+    var dil = dilBul(kod);
+    if (!dil) return;
+
     var h3ler = bolumler[kod].querySelectorAll('h3[id]');
     if (!h3ler.length) return;
 
     var liste = document.createElement('ol');
     var baglar = [];
-    for (var i = 0; i < h3ler.length; i++) {
+    for (var n = 0; n < h3ler.length; n++) {
       var li = document.createElement('li');
       var a = document.createElement('a');
-      a.href = '#' + h3ler[i].id;
+      a.href = '#' + h3ler[n].id;
       /* Cengel de baslik metnine dahil: sondaki '#' isareti kirpiliyor. */
-      a.textContent = h3ler[i].textContent.replace(/#\s*$/, '').trim();
+      a.textContent = h3ler[n].textContent.replace(/#\s*$/, '').trim();
       li.appendChild(a);
       liste.appendChild(li);
       baglar.push(a);
@@ -476,14 +725,26 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
     var yanBaslik = document.createElement('p');
     yanBaslik.className = 'yan-baslik';
     yanBaslik.textContent = dil.yan;
-    var katla = document.createElement('details');
+    katlaKutusu = document.createElement('details');
     var ozet = document.createElement('summary');
     ozet.textContent = dil.katla;
-    katla.appendChild(ozet);
-    katla.appendChild(liste);
+    katlaKutusu.appendChild(ozet);
+    katlaKutusu.appendChild(liste);
+    katlamaAyarla();
     yanKap.appendChild(yanBaslik);
-    yanKap.appendChild(katla);
+    yanKap.appendChild(katlaKutusu);
     yanKap.setAttribute('aria-label', dil.yan);
+
+    /* Kunyenin bir kopyasi yan sutunun altinda: sayfanin kimligi (surum,
+       yururluk, iletisim) metni bolmeden hep gorunur kalsin diye. Metin
+       kaynaktan OLDUGU GIBI aliniyor, yeniden yazilmiyor. */
+    var kunye = kunyeler[kod];
+    if (kunye) {
+      var kopya = kunye.cloneNode(true);
+      kopya.className = 'yan-kunye';
+      kopya.setAttribute('aria-hidden', 'true');
+      yanKap.appendChild(kopya);
+    }
 
     if (!('IntersectionObserver' in window)) return;
     var gorunen = {};
@@ -506,35 +767,44 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
     for (var m = 0; m < h3ler.length; m++) izleyici.observe(h3ler[m]);
   }
 
-  /* --- 6) Dil secimi --- */
-  function kayittanOku() {
-    try { return window.localStorage.getItem(ANAHTAR); } catch (e) { return null; }
+  if (darEkran) {
+    if (darEkran.addEventListener) darEkran.addEventListener('change', katlamaAyarla);
+    else if (darEkran.addListener) darEkran.addListener(katlamaAyarla);
   }
-  function kayitYaz(kod) {
-    try { window.localStorage.setItem(ANAHTAR, kod); } catch (e) { /* gizli sekme */ }
+
+  /* --- 7) Dil secimi ------------------------------------------------------ */
+  function dilBul(kod) {
+    for (var i = 0; i < DILLER.length; i++) if (DILLER[i].kod === kod) return DILLER[i];
+    return null;
   }
+
   function tarayicidanSec() {
-    var diller = navigator.languages || [navigator.language || ''];
-    for (var i = 0; i < diller.length; i++) {
-      var d = String(diller[i]).toLowerCase();
-      if (d.indexOf('tr') === 0) return 'tr';
-      if (d.indexOf('en') === 0) return 'en';
+    var istenen = navigator.languages || [navigator.language || ''];
+    for (var i = 0; i < istenen.length; i++) {
+      var etiket = String(istenen[i]).toLowerCase();
+      for (var j = 0; j < DILLER.length; j++) {
+        if (etiket.indexOf(DILLER[j].kod) === 0) return DILLER[j].kod;
+      }
     }
-    return 'en';   /* Tarayicinin dili ikisinden biri degilse Ingilizce. */
+    /* Tarayicinin dilleri listede yoksa varsayilan dil. */
+    return dilBul(VARSAYILAN) ? VARSAYILAN : DILLER[0].kod;
   }
 
   var dugmeler = {};
   function dilUygula(kod, kaydet) {
-    bolumler.tr.hidden = kod !== 'tr';
-    bolumler.en.hidden = kod !== 'en';
+    var dil = dilBul(kod);
+    if (!dil) return;
+    DILLER.forEach(function (d) { bolumler[d.kod].hidden = d.kod !== kod; });
     document.documentElement.lang = kod;
     for (var k in dugmeler) {
       if (Object.prototype.hasOwnProperty.call(dugmeler, k)) {
         dugmeler[k].setAttribute('aria-pressed', String(k === kod));
       }
     }
+    kabugaDilVer(dil);
+    temaKur(dil);
     icindekilerKur(kod);
-    if (kaydet) kayitYaz(kod);
+    if (kaydet) kayitYaz(DIL_ANAHTARI, kod);
   }
 
   var anahtarKap = document.getElementById('dil-anahtari');
@@ -560,8 +830,8 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
     } catch (e) { return null; }
   }
 
-  var kayitli = kayittanOku();
-  var baslangic = (kayitli === 'tr' || kayitli === 'en') ? kayitli : tarayicidanSec();
+  var kayitliDil = kayittanOku(DIL_ANAHTARI);
+  var baslangic = dilBul(kayitliDil) ? kayitliDil : tarayicidanSec();
 
   /* Adreste bir bolum kimligi varsa o bolumun dili kazanir: paylasilan bag
      hangi dile isaret ediyorsa okuyucu onu gormeli, kayitli tercihi degil. */
@@ -578,7 +848,6 @@ govdede duruyor. Ikisini de tekrarlamak icin ayri bir serit gerekmiyor.
   if (hedef && hedef.scrollIntoView) hedef.scrollIntoView();
 })();
 </script>
-{% endif %}
 
 </body>
 </html>

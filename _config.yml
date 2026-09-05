@@ -10,6 +10,64 @@ baseurl: /aruna-web
 
 lang: tr
 
+# --- Diller: sitenin TEK dil kaynagi -------------------------------------
+#
+# Sayfa kabugundaki her metin buradan gelir; sablonda ve betikte elle yazilmis
+# bir dil metni ya da elle yazilmis bir dil kodu YOKTUR. Sunum betigi bu
+# listeyi oldugu gibi okur (`site.diller | jsonify`) ve bolum sayisini da ona
+# gore bekler.
+#
+# YENI DIL EKLEMEK: buraya bir blok eklenir ve gizlilik.md'ye ayni SIRADA bir
+# `## ` bolumu yazilir. Sablona ve betige dokunulmaz.
+#
+# SIRA ONEMLI: betik dil bolumlerini basliklarindan degil, kaynak metindeki
+# siralarindan tanir. Baslik metni her dilde farkli oldugu icin (Gizlilik
+# Politikasi / Privacy Policy / ...) siradan baska ortak bir isaret yok.
+varsayilan_dil: en
+
+diller:
+  - kod: tr
+    kisa: TR
+    etiket: Türkçe
+    yan: Bölümler
+    katla: İçindekiler
+    nav_ana: Ana sayfa
+    nav_gizlilik: Gizlilik politikası
+    footer_hak: Tüm hakları saklıdır
+    footer_not: >-
+      Bu sitede satın alım, reklam ve hesap açma yok; yalnızca Aruna'nın
+      belgeleri duruyor.
+    footer_site: Geliştiricinin sitesi
+    footer_iletisim: İletişim
+    tema: Tema
+    tema_sistem: Sistem
+    tema_acik: Açık
+    tema_koyu: Koyu
+  - kod: en
+    kisa: EN
+    etiket: English
+    yan: Sections
+    katla: Contents
+    nav_ana: Home
+    nav_gizlilik: Privacy policy
+    footer_hak: All rights reserved
+    footer_not: >-
+      No purchases, no ads and no sign-up on this site; it only holds Aruna's
+      documents.
+    footer_site: Developer's site
+    footer_iletisim: Contact
+    tema: Theme
+    tema_sistem: System
+    tema_acik: Light
+    tema_koyu: Dark
+
+# Kabuk metni olmayan sabitler.
+gelistirici: Hasan Basri GÖKKAYA
+telif_yili: 2026
+destek_adresi: destek@hb4.aleeas.com
+gelistirici_sitesi: https://hb4sri.com
+github: https://github.com/HB4sri
+
 # gizlilik.md, uygulama deposundaki docs/gizlilik_politikasi.md ile birebir
 # ayni kalsin diye on bilgi (front matter) tasimaz. Sayfaya ne gerekiyorsa
 # buradan verilir.
@@ -25,6 +83,10 @@ defaults:
       path: "gizlilik.md"
     values:
       permalink: /gizlilik/
+      # Sayfanin h1'i yalniz marka adini tasiyor (politika basligi her dilin
+      # kendi bolumunde). Play "sayfa gizlilik politikasi diye etiketlenmis
+      # olmali" dedigi icin etiketi <title> de tasir.
+      title: "Aruna Gizlilik Politikası / Privacy Policy"
       aciklama: >-
         Aruna gizlilik politikasi: sunucu yok, hesap yok, internet izni yok.
         Yazdiklariniz telefonda kalir; yedek dosyasi ve paylasim disinda
