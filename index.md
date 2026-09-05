@@ -2,8 +2,14 @@
 
 ## Türkçe
 
-Gününüzü yazmanız, fotoğraflamanız ve seslendirmeniz için yaptığım bir Android uygulaması. Hesap istemez, sunucusu yoktur ve internet izni bile yoktur; yazdıklarınız telefonunuzda kalır.
+Gününüzü yazmanız, fotoğraflamanız ve seslendirmeniz için bir Android uygulaması.
 {: .tanit}
+
+Hesap istemez, sunucusu yoktur ve internet izni bile yoktur; yazdıklarınız telefonunuzda kalır.
+{: .alt-tanit}
+
+- [Gizlilik politikası](gizlilik)
+{: .baglar}
 
 - **Yazın, fotoğraflayın, seslendirin.** Biçimlendirilmiş metin, fotoğraf, çizim ve ses kaydı aynı notun içinde.
 - **Kilit sizde kalır.** PIN ve parmak izi ile kilitleyebilirsiniz; kilitli notlar bildirimlere hiç girmez.
@@ -11,25 +17,25 @@ Gününüzü yazmanız, fotoğraflamanız ve seslendirmeniz için yaptığım bi
 - **Yedeğinizi siz taşırsınız.** Tek dosyaya yedek alır, istediğiniz yerde saklarsınız.
 {: .ozellikler}
 
-- [Gizlilik politikası](gizlilik)
-{: .baglar}
-
 Destek: [destek@hb4.aleeas.com](mailto:destek@hb4.aleeas.com)
 {: .destek}
 
 ## English
 
-An Android journal I built so you can write, photograph and record your day. No account, no server, not even the internet permission; what you write stays on your phone.
+An Android journal for writing, photographing and recording your day.
 {: .tanit}
+
+No account, no server, not even the internet permission; what you write stays on your phone.
+{: .alt-tanit}
+
+- [Privacy policy](gizlilik)
+{: .baglar}
 
 - **Write, photograph, record.** Formatted text, photos, drawings and voice notes in the same entry.
 - **The lock stays with you.** Lock entries with a PIN or your fingerprint; locked entries never appear in notifications.
 - **No server, no account.** The app does not even hold the internet permission; nothing is sent anywhere.
 - **Your backup is yours to carry.** Back up to a single file and keep it wherever you like.
 {: .ozellikler}
-
-- [Privacy policy](gizlilik)
-{: .baglar}
 
 Contact: [destek@hb4.aleeas.com](mailto:destek@hb4.aleeas.com)
 {: .destek}

@@ -27,35 +27,25 @@ varsayilan_dil: en
 
 diller:
   - kod: tr
-    kisa: TR
     etiket: Türkçe
     yan: Bölümler
     katla: İçindekiler
+    dil_etiket: Dil
     nav_ana: Ana sayfa
     nav_gizlilik: Gizlilik politikası
     footer_hak: Tüm hakları saklıdır
-    footer_not: >-
-      Bu sitede satın alım, reklam ve hesap açma yok; yalnızca Aruna'nın
-      belgeleri duruyor.
-    footer_site: Geliştiricinin sitesi
-    footer_iletisim: İletişim
     tema: Tema
     tema_sistem: Sistem
     tema_acik: Açık
     tema_koyu: Koyu
   - kod: en
-    kisa: EN
     etiket: English
     yan: Sections
     katla: Contents
+    dil_etiket: Language
     nav_ana: Home
     nav_gizlilik: Privacy policy
     footer_hak: All rights reserved
-    footer_not: >-
-      No purchases, no ads and no sign-up on this site; it only holds Aruna's
-      documents.
-    footer_site: Developer's site
-    footer_iletisim: Contact
     tema: Theme
     tema_sistem: System
     tema_acik: Light
@@ -64,8 +54,6 @@ diller:
 # Kabuk metni olmayan sabitler.
 gelistirici: Hasan Basri GÖKKAYA
 telif_yili: 2026
-destek_adresi: destek@hb4.aleeas.com
-gelistirici_sitesi: https://hb4sri.com
 github: https://github.com/HB4sri
 
 # gizlilik.md, uygulama deposundaki docs/gizlilik_politikasi.md ile birebir

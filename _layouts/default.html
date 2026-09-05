@@ -120,8 +120,10 @@ main{flex:1}
  * olur. Belge sayfasinin kabi yan sutunu da kapsar: 232 + 52 + 760 = 1044.
  * Giris sayfasinda yan sutun yok, kap metin genisligi kadar.
  */
+/* Iki sayfanin kabi da AYNI: kullanicinin istegi, giris sayfasinda
+   kenar bosluklarinin politika sayfasindakiyle ayni olmasi. */
 .belge{--kap:1044px}
-.giris{--kap:760px}
+.giris{--kap:1044px}
 .kap{width:min(var(--kap),calc(100% - 40px));margin-inline:auto}
 
 a{color:inherit;text-underline-offset:.18em}
@@ -146,17 +148,23 @@ header{padding:26px 0 0}
 .ust-sag>a{font-size:.92rem;color:var(--sonuk);text-decoration:none}
 .ust-sag>a:hover{color:var(--metin);text-decoration:underline}
 
-/* Dil anahtari. Betik olusturuyor: calismazsa gorunmez ve butun diller
-   govdede alt alta durur, yani icerik hicbir durumda kaybolmaz. */
-.dil{display:inline-flex;border:1px solid var(--cizgi);border-radius:999px;overflow:hidden;background:var(--yuzey)}
-.dil button{
-  font:inherit;font-size:.82rem;letter-spacing:.02em;
-  padding:5px 13px;border:0;background:transparent;color:var(--sonuk);
-  cursor:pointer;
+/* Dil anahtari ACILIR LISTE, dil basina bir dugme DEGIL: dil sayisi
+   artinca ust cubuk buyumez ve her dil kendi adiyla, kendi dilinde gorunur.
+   Betik olusturuyor: calismazsa gorunmez ve butun diller govdede alt alta
+   durur, yani icerik hicbir durumda kaybolmaz. */
+.dil{
+  display:inline-flex;align-items:center;gap:7px;
+  border:1px solid var(--cizgi);border-radius:999px;background:var(--yuzey);
+  padding:3px 10px 3px 12px;
 }
-.dil button:hover{color:var(--metin)}
-.dil button[aria-pressed="true"]{background:var(--marka);color:var(--marka-yazi)}
-.dil button:focus-visible{outline:2px solid var(--marka);outline-offset:-3px}
+.dil>svg{width:15px;height:15px;color:var(--sonuk);flex:none}
+.dil select{
+  font:inherit;font-size:.85rem;
+  border:0;background:transparent;color:var(--metin);
+  cursor:pointer;padding:3px 0;
+}
+.dil select:focus-visible{outline:2px solid var(--marka);outline-offset:2px;border-radius:4px}
+.dil:hover>svg{color:var(--metin)}
 
 /* --- Tipografi ----------------------------------------------------------- */
 .govde{padding:46px 0 72px}
@@ -281,41 +289,48 @@ h2:hover .cengel,h3:hover .cengel,.cengel:focus-visible{opacity:1}
 }
 
 /* --- Giris sayfasi ------------------------------------------------------- */
-.giris .govde{padding-top:60px}
-.giris h1{
-  font-family:'Sekuya',system-ui,-apple-system,"Segoe UI",sans-serif;
-  font-weight:400;letter-spacing:.04em;line-height:1.3;
-  font-size:clamp(2.1rem,1.6rem + 2.2vw,2.9rem);
-}
+.giris .govde{padding-top:56px}
 /* Giriste dil basliklari yalnizca dilin adini soyluyor ve ayni bilgi dil
    anahtarinda zaten var; betik onlari gizliyor. Betik kosmazsa gorunurler ve
    alt alta duran dilleri birbirinden ayirirlar, yani gerekliler. */
 .giris .govde h2{margin-top:46px}
 .giris .govde section[data-dil]>h2:first-child{margin-top:0}
-.giris .tanit{font-size:1.1rem;line-height:1.6;margin:18px 0 26px}
-.giris .ozellikler{list-style:none;padding:0;margin:0 0 28px;display:grid;gap:12px}
+/* Tanitim satiri okunur genislikte kalir; kap genis ama satir uzunlugu
+   okumanin isi, kabin degil. */
+.giris .tanit{font-size:1.45rem;line-height:1.35;margin:0 0 14px;max-width:22ch;letter-spacing:-.015em;font-weight:600}
+.giris .alt-tanit{font-size:1.02rem;line-height:1.6;color:var(--sonuk);margin:0 0 30px;max-width:52ch}
+/* Sitenin tek isi politikayi yayinlamak: bag bir cumlenin icinde degil,
+   kendi dugmesinde duruyor. */
+.giris .baglar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:0 0 44px;padding:0;list-style:none}
+.giris .baglar li{margin:0}
+.giris .baglar a{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--marka);color:var(--marka-yazi);
+  padding:14px 26px;border-radius:999px;
+  font-size:1.02rem;font-weight:600;text-decoration:none;
+}
+.giris .baglar a::after{content:"\2192"}
+.giris .baglar a:hover{opacity:.88}
+.giris .ozellikler{
+  list-style:none;padding:0;margin:0 0 30px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:14px;
+}
 .giris .ozellikler li{
-  margin:0;padding:15px 18px;
+  margin:0;padding:16px 18px;
   background:var(--yuzey);border:1px solid var(--cizgi);border-radius:10px;
 }
-.giris .ozellikler strong{color:var(--marka);font-size:.95rem}
-.giris .baglar{display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;margin:0 0 16px;padding:0;list-style:none}
-.giris .baglar li{margin:0}
-.giris .baglar a{font-weight:600;text-decoration-thickness:1px}
-.giris .baglar a::after{content:" \2192";color:var(--marka)}
+.giris .ozellikler strong{display:block;color:var(--marka);font-size:.95rem;margin-bottom:3px}
 .giris .destek{font-size:.94rem;color:var(--sonuk);margin:0}
 
 /* --- Alt bilgi ----------------------------------------------------------- */
 footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;color:var(--sonuk);font-size:.88rem}
-.alt{display:flex;justify-content:space-between;align-items:flex-start;gap:18px 32px;flex-wrap:wrap}
-.alt-sol{min-width:0;max-width:48ch}
-.alt-telif{margin:0 0 5px}
-.alt-not{margin:0}
-.alt-sag{display:flex;flex-direction:column;align-items:flex-end;gap:12px}
-.alt-baglar{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:flex-end}
-.alt-baglar a{color:var(--sonuk);text-decoration:none}
-.alt-baglar a:hover{color:var(--metin);text-decoration:underline}
-.alt-gh{display:inline-flex}
+/* Tek satir: solda telif, sagda tema secici ve onun sagindaki GitHub
+   simgesi. Simge kabin sag kenarina oturur, yani sagdaki bosluk govdeninkiyle
+   ayni kalir. */
+.alt{display:flex;justify-content:space-between;align-items:center;gap:12px 28px;flex-wrap:wrap}
+.alt-telif{margin:0}
+.alt-sag{display:flex;align-items:center;gap:16px}
+.alt-gh{display:inline-flex;color:var(--sonuk)}
 .alt-gh svg{display:block;width:19px;height:19px}
 .alt-gh:hover{color:var(--metin)}
 
@@ -425,22 +440,12 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;col
 
 <footer>
   <div class="kap alt">
-    <div class="alt-sol">
-      <p class="alt-telif">&copy; {{ site.telif_yili }} {{ site.gelistirici }} &middot; <span data-metin="footer_hak">{{ ilk_dil.footer_hak }}</span></p>
-      <p class="alt-not" data-metin="footer_not">{{ ilk_dil.footer_not }}</p>
-    </div>
+    <p class="alt-telif">&copy; {{ site.telif_yili }} {{ site.gelistirici }} &middot; <span data-metin="footer_hak">{{ ilk_dil.footer_hak }}</span></p>
     <div class="alt-sag">
-      <nav class="alt-baglar">
-        {% unless page.url contains 'gizlilik' %}
-        <a href="{{ '/gizlilik/' | relative_url }}" data-metin="nav_gizlilik">{{ ilk_dil.nav_gizlilik }}</a>
-        {% endunless %}
-        <a href="{{ site.gelistirici_sitesi }}" rel="noopener" data-metin="footer_site">{{ ilk_dil.footer_site }}</a>
-        <a href="mailto:{{ site.destek_adresi }}" data-metin="footer_iletisim">{{ ilk_dil.footer_iletisim }}</a>
-        <a class="alt-gh" href="{{ site.github }}" rel="me noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
-        </a>
-      </nav>
       <div class="tema" id="tema-anahtari" hidden></div>
+      <a class="alt-gh" href="{{ site.github }}" rel="me noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02.8-.22 1.65-.33 2.5-.33.85 0 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85 0 1.34-.01 2.42-.01 2.75 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+      </a>
     </div>
   </div>
 </footer>
@@ -590,6 +595,15 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;col
     var h2 = bolumler[dil.kod].querySelector('h2');
     if (h2 && h2.textContent.trim() === dil.etiket) h2.hidden = true;
   });
+
+  /* Sayfanin h1'i marka adini tekrar ediyor ve ust cubukta zaten duruyor.
+     Gizleniyor ama DOM'da kaliyor: JavaScript kapaliyken belge kendi basligini
+     tasimali. Hemen ardindaki yatay cizgi de gizleniyor, yoksa sayfanin
+     tepesinde sahipsiz bir ayrac kalirdi. */
+  var anaBaslik = main.querySelector(':scope > h1');
+  if (anaBaslik) anaBaslik.hidden = true;
+  var ilkAyrac = main.querySelector(':scope > hr');
+  if (ilkAyrac) ilkAyrac.hidden = true;
 
   /* Kaynaktaki "Türkçe · English" bag satiri artik anahtarin isi. */
   var ustParagraflar = main.querySelectorAll(':scope > p');
@@ -790,16 +804,15 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;col
     return dilBul(VARSAYILAN) ? VARSAYILAN : DILLER[0].kod;
   }
 
-  var dugmeler = {};
+  var dilSecici = null;
   function dilUygula(kod, kaydet) {
     var dil = dilBul(kod);
     if (!dil) return;
     DILLER.forEach(function (d) { bolumler[d.kod].hidden = d.kod !== kod; });
     document.documentElement.lang = kod;
-    for (var k in dugmeler) {
-      if (Object.prototype.hasOwnProperty.call(dugmeler, k)) {
-        dugmeler[k].setAttribute('aria-pressed', String(k === kod));
-      }
+    if (dilSecici) {
+      if (dilSecici.value !== kod) dilSecici.value = kod;
+      dilSecici.setAttribute('aria-label', dil.dil_etiket);
     }
     kabugaDilVer(dil);
     temaKur(dil);
@@ -809,18 +822,34 @@ footer{margin-top:56px;border-top:1px solid var(--cizgi);padding:22px 0 40px;col
 
   var anahtarKap = document.getElementById('dil-anahtari');
   if (anahtarKap) {
-    anahtarKap.hidden = false;
+    /* Kure isareti: liste bir dil listesi, metin okumadan da anlasilsin. */
+    var kure = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    kure.setAttribute('viewBox', '0 0 24 24');
+    kure.setAttribute('fill', 'none');
+    kure.setAttribute('stroke', 'currentColor');
+    kure.setAttribute('stroke-width', '1.7');
+    kure.setAttribute('aria-hidden', 'true');
+    var yol = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    yol.setAttribute('d', 'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM3.5 9h17M3.5 15h17'
+      + 'M12 3c2.4 2.6 2.4 15.4 0 18M12 3c-2.4 2.6-2.4 15.4 0 18');
+    kure.appendChild(yol);
+
+    dilSecici = document.createElement('select');
+    dilSecici.id = 'dil-secim';
     DILLER.forEach(function (d) {
-      var dugme = document.createElement('button');
-      dugme.type = 'button';
-      dugme.textContent = d.kisa;
-      dugme.title = d.etiket;
-      dugme.setAttribute('lang', d.kod);
-      dugme.setAttribute('aria-label', d.etiket);
-      dugme.addEventListener('click', function () { dilUygula(d.kod, true); });
-      anahtarKap.appendChild(dugme);
-      dugmeler[d.kod] = dugme;
+      var secenek = document.createElement('option');
+      secenek.value = d.kod;
+      secenek.textContent = d.etiket;
+      secenek.setAttribute('lang', d.kod);
+      dilSecici.appendChild(secenek);
     });
+    dilSecici.addEventListener('change', function () {
+      dilUygula(dilSecici.value, true);
+    });
+
+    anahtarKap.appendChild(kure);
+    anahtarKap.appendChild(dilSecici);
+    anahtarKap.hidden = false;
   }
 
   function hashHedefi() {
