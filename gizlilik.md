@@ -6,7 +6,7 @@
 
 ## Gizlilik Politikası
 
-**Sürüm:** 1.0 · **Yürürlük:** 5 Eylül 2026
+**Sürüm:** 1.1 · **Yürürlük:** 6 Eylül 2026
 **İletişim:** destek@hb4.aleeas.com
 
 ### Özet
@@ -68,8 +68,9 @@ edilmez. Yeni bir telefona geçerken işletim sisteminin cihazdan cihaza aktarı
 üreticilerin cihazlarında Aruna'nın verisini taşıyabilir; bunu siz ve işletim sistemi
 başlatır, Aruna değil. Böyle bir aktarımda notlarınız, medyanız, ayarlarınız ve PIN'in özeti
 taşınır; kurtarma cümleniz taşınmaz, çünkü eski telefonun anahtar deposuna bağlıdır ve yeni
-telefonda okunamaz. Yeni telefonda PIN'i kaldırıp yeniden kurduğunuzda yeni bir kurtarma
-cümlesi alırsınız. Verinizi kendiniz taşımanın güvenilir yolu aşağıdaki yedek dosyasıdır.
+telefonda okunamaz. Aruna bu durumu açılışta fark eder ve size söyler; Güvenlik ayarlarında
+PIN'inizi doğruladıktan sonra yeni bir kurtarma cümlesi oluşturursunuz, PIN'iniz değişmez.
+Verinizi kendiniz taşımanın güvenilir yolu aşağıdaki yedek dosyasıdır.
 
 ### Reklam, analitik ve izleme
 
@@ -203,7 +204,7 @@ davranışını değiştiren bir güncelleme yayımlanırsa politika aynı sür�
 
 ## Privacy Policy
 
-**Version:** 1.0 · **Effective:** 5 September 2026
+**Version:** 1.1 · **Effective:** 6 September 2026
 **Contact:** destek@hb4.aleeas.com
 
 ### Summary
@@ -266,8 +267,9 @@ backup. When you move to a new phone, however, the operating system's device-to-
 may carry Aruna's data on devices from some manufacturers; you and the operating system start
 that, not Aruna. In such a transfer your entries, media, settings and the PIN hash are carried
 over; your recovery phrase is not, because it is bound to the old phone's keystore and cannot
-be read on the new one. Removing the PIN on the new phone and setting it up again gives you a
-new recovery phrase. The reliable way to move your data yourself is the backup file below.
+be read on the new one. Aruna notices this when it starts and tells you; under Security, after
+confirming your PIN, you create a new recovery phrase and your PIN stays the same. The reliable
+way to move your data yourself is the backup file below.
 
 ### Ads, analytics and tracking
 
