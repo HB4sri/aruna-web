@@ -1,7 +1,7 @@
 title: Aruna
 description: >-
-  Gunluk ve not defteri icin bir Android uygulamasi. Hesap yok, sunucu yok,
-  internet izni yok.
+  Günlük ve not defteri için bir Android uygulaması. Hesap istemez, bir
+  sunucuya bağlanmaz ve internet izni istemez.
 
 # baseurl bos birakilamaz: bos kalirsa sayfa ici baglar hb4sri.github.io
 # koklerine gider, aruna-web'e degil.
@@ -76,6 +76,6 @@ defaults:
       # olmali" dedigi icin etiketi <title> de tasir.
       title: "Aruna Gizlilik Politikası / Privacy Policy"
       aciklama: >-
-        Aruna gizlilik politikasi: sunucu yok, hesap yok, internet izni yok.
-        Yazdiklariniz telefonda kalir; yedek dosyasi ve paylasim disinda
-        cikmaz.
+        Aruna gizlilik politikası: hesap yok, sunucu yok, internet izni yok.
+        Yazdıklarınız cihazınızda kalır ve yalnızca sizin seçtiğiniz yollarla
+        çıkar.
