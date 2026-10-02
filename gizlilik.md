@@ -6,7 +6,7 @@
 
 ## Gizlilik Politikası
 
-**Sürüm:** 1.2 · **Yürürlük:** 25 Eylül 2026
+**Sürüm:** 1.3 · **Yürürlük:** 2 Ekim 2026
 **İletişim:** destek@hb4.aleeas.com
 
 ### Özet
@@ -15,8 +15,10 @@ Aruna ücretsizdir. Reklam, ücretli özellik, abonelik ya da uygulama içi sat�
 Aruna hesap istemez, bir sunucuya bağlanmaz ve internet izni istemez.
 
 Yazdıklarınız, görselleriniz ve ses kayıtlarınız cihazınızda kalır. Cihazınızdan yalnızca
-sizin seçtiğiniz yollarla çıkar: yedek dosyası aldığınızda, bir şeyi paylaştığınızda ya da
-kopyaladığınızda ve yeni bir cihaza geçerken Android'in aktarımını kullandığınızda.
+sizin seçtiğiniz yollarla çıkar: bir yedeği paylaştığınızda ya da kaydettiğinizde, yedekler
+için bir dış klasör seçtiğinizde, bir şeyi paylaştığınızda ya da kopyaladığınızda ve yeni bir
+cihaza geçerken Android'in aktarımını kullandığınızda. Otomatik yedekler cihazınızın içinde
+durur; dış klasör seçtiyseniz her birinin şifreli bir kopyası oraya da yazılır.
 
 **Notlarınızı göremem.** Notlarınızdan yalnızca bana kendiniz gönderdiğinizi görürüm; örneğin
 bir sorunu göstermek için yolladığınız bir notu ya da ekran görüntüsünü. Bu yalnızca Aruna
@@ -36,8 +38,9 @@ bir eyleminize bağlı olup olmadığı ve içinde not içeriği bulunup bulunma
 - **Cihazınızdaki notlarınız:** başlıkları, yazıları, görselleri, çizimleri, ses kayıtları,
   etiketleri ve ruh hâlleri. Aruna'nın internet izni olmadığı için uygulama bunların hiçbirini
   internet üzerinden bana ya da başka bir yere gönderemez.
-- **PIN'iniz ve kurtarma anahtarınız.** Aruna ikisini de yalnızca cihazınızda saklar (PIN'in
-  kendisini değil, özetini) ve yedek dosyasına koymaz.
+- **PIN'iniz, kurtarma anahtarınız ve yedek parolanız.** Aruna üçünü de yalnızca cihazınızda
+  saklar (PIN'in kendisini değil, özetini; yedek parolasını da yalnızca kaydetmeyi seçerseniz)
+  ve yedeklere koymaz.
 - **Parmak iziniz ve yüzünüz.** Onları Android doğrular; Aruna bile yalnızca "doğrulandı" ya
   da "doğrulanmadı" sonucunu görür.
 - **Aruna'yı nasıl kullandığınız.** Aruna'da analitik ve kullanım ölçümü yoktur; hangi ekranı
@@ -53,9 +56,9 @@ bir eyleminize bağlı olup olmadığı ve içinde not içeriği bulunup bulunma
   açar; neyi yazıp göndereceğinize siz karar verirsiniz.
 - **Tanılama dosyası.** Bir sorunu bildirirken eklemeyi seçerseniz uygulamanın hata
   kayıtlarını görürüm: zaman, sürüm numarası, hatanın türü ve iletisi, teknik iz. Kayıtlarda
-  notlarınız için bir alan yoktur; çok nadir bir istisna "Cihazınızda ne saklanıyor"
-  bölümünde yazıyor. Göndermeden önce dosyanın tamamını Ayarlar > Yardım > Tanılama'da
-  görebilirsiniz.
+  notlarınız için bir alan yoktur ve hata iletileri kayda yazılmadan önce süzülür
+  ("Cihazınızda ne saklanıyor"). Göndermeden önce dosyanın tamamını Ayarlar > Yardım >
+  Tanılama'da görebilirsiniz.
 - **Test geri bildiriminiz ve yorumunuz.** Google Play'deki kapalı test (erken erişim)
   sırasında yazdığınız özel geri bildirimi ve mağazaya yazdığınız yorumu görürüm; ikisini de
   siz yazarsınız. Özel geri bildirimi yalnızca ben görürüm. Google Play yorumla ve geri
@@ -132,8 +135,9 @@ yazabilirsiniz: **destek@hb4.aleeas.com**
 
 ### Cihazınızda ne saklanıyor
 
-Uygulamanın sakladığı her şey cihazınızın uygulamaya ayrılmış özel alanındadır. Veritabanı
-dosyası ve medya klasörleri oradadır; başka uygulamalar oraya giremez.
+Uygulamanın sakladığı her şey, dış klasöre yazdığı yedek kopyaları dışında, cihazınızın
+uygulamaya ayrılmış özel alanındadır. Veritabanı dosyası, medya klasörleri ve Yedeklerim
+oradadır; başka uygulamalar oraya giremez.
 
 **Günlük içeriğiniz:** her notun başlığı, gövdesi (biçimlendirmesiyle birlikte), notun ait
 olduğu tarih ve saat, notu gerçekten yazdığınız an (geçmiş bir güne yazdığınızda ikisi
@@ -146,22 +150,40 @@ tema, renk, yazı tipi ve yazı boyutu, dil, bildirim ve gizlilik tercihleri; ke
 hatırlatıcı metni, ruh hâllerine verdiğiniz adlar ve renkler, çizimde kaydettiğiniz favori
 renkler, son aramalarınız ve çöp kutusunun saklama süresi.
 
+**Yedekleriniz:** Yedekleme ve geri yükleme sayfasındaki Yedeklerim bölümünde otomatik
+yedekler, elle aldığınız yedekler ve geri yüklemeden önce alınan güvenlik yedekleri durur. Her
+biri, alındığı andaki günlüğünüzün bir kopyasıdır: notlarınız (kilitli notlarınız dâhil),
+görselleriniz, ses kayıtlarınız, ayarlarınız ve profil görseliniz. Yedeklerim uygulamanın özel
+alanında, Android'in kendi yedeğine (Google Drive) ve cihazdan cihaza aktarıma almadığı bir
+klasördedir. Aruna oradaki yedekleri ayrıca şifrelemez; canlı veritabanıyla aynı korumaya
+sahiptirler ("Cihazda koruma"). Dış klasöre yazılan kopyalar ise bu alanın dışında, seçtiğiniz
+klasörde durur ("Verinin cihazınızdan çıkabileceği durumlar"). Aruna yedekler hakkında kısa
+kayıtlar da tutar: her yedeğin zamanı, boyutu, not ve medya sayıları ve ona verdiğiniz ad; bir
+yedeği en son ne zaman ve nereye çıkardığınız (seçtiğiniz uygulamanın ya da kaydettiğiniz
+yerin adı); seçtiyseniz dış klasörün adresi ve adı; otomatik yedeklerin ve yedekle ilgili
+hatırlatmaların zamanları; günlüğünüzün değişip değişmediğini anlamaya yarayan ve içinden
+içerik geri okunamayan bir özet; bu kayıtların başka bir cihazdan gelip gelmediğini anlamaya
+yarayan, Aruna'nın kendi ürettiği rastgele bir işaret (cihaz kimliği değildir).
+
 **Güvenlik:** PIN kurduysanız yalnızca tuzlu özeti saklanır, PIN'in kendisi değil. Kurtarma
 anahtarınız Android'in anahtar deposu (Keystore) ile şifrelenerek saklanır; o anahtar
-cihazınıza bağlıdır ve cihazınızı terk etmez.
+cihazınıza bağlıdır ve cihazınızı terk etmez. Yedek parolanızı kaydetmeyi seçerseniz o da
+Android'in anahtar deposuyla şifrelenerek yalnızca cihazınızda saklanır ve yedeğe girmez.
 
 **Tanılama:** uygulama bir hatayla karşılaşırsa cihazda tanılama için tutulan bir dosyaya
 teknik bir kayıt eklenir: zaman, uygulamanın sürümü, hatanın türü, iletisi ve teknik izi.
-Kayıtlarda notlarınız için bir alan yoktur; en çok 50 kayıt tutulur, eskisi silinir ve kayıtlar
-kendiliğinden hiçbir yere gönderilmez. Çok nadir durumlarda bir hatanın iletisi yazdığınız bir
-metinden birkaç kelime taşıyabilir; örneğin kaydı bozulmuş bir notu açarken oluşan hatanın
-iletisi o notun bir parçasını gösterir. Bu yüzden tanılama dosyasını göndermeden önce içini
-görebilirsiniz ("Verinin cihazınızdan çıkabileceği durumlar").
+Kayıtlarda notlarınız için bir alan yoktur; en çok 50 kayıt tutulur, eskisi silinir ve
+kayıtlar kendiliğinden hiçbir yere gönderilmez. Hatanın iletisi kayda yazılmadan önce süzülür:
+veri taşıyabilecek kısmı (örneğin bir notun ya da etiketin içeriği, bir dosya yolu) atılır,
+Aruna'nın tanımadığı bir hatanın iletisi hiç yazılmaz. Süzgeçten önceki sürümlerin yazdığı
+kayıtlar da açılışta süzülür; onlarda iletinin en çok ilk satırı kalır. Tanılama dosyasını
+göndermeden önce içini yine görebilirsiniz ("Verinin cihazınızdan çıkabileceği durumlar").
 
 **Saklanmayanlar:** e-posta adresiniz, telefon numaranız, konumunuz, kişileriniz, cihaz
-kimliğiniz ve reklam kimliğiniz. Bunların hiçbiri istenmez ve saklanmaz. Uygulamaya
-verdiğiniz ad yalnızca cihazınızda saklanır; bir PDF paylaştığınızda ya da yedek aldığınızda
-adın nereye gittiği "Verinin cihazınızdan çıkabileceği durumlar" bölümünde yazıyor.
+kimliğiniz ve reklam kimliğiniz. Bunların hiçbiri istenmez ve saklanmaz. Uygulamaya verdiğiniz
+ad yalnızca cihazınızda saklanır; bir PDF paylaştığınızda ya da bir yedeği dışarı
+çıkardığınızda adın nereye gittiği "Verinin cihazınızdan çıkabileceği durumlar" bölümünde
+yazıyor.
 
 ### Cihazda koruma
 
@@ -184,10 +206,13 @@ kapalıdır.
 edilmez. Yeni bir cihaza geçerken işletim sisteminin cihazdan cihaza aktarımı ise bazı
 üreticilerin cihazlarında Aruna'nın verisini taşıyabilir; bunu siz ve işletim sistemi
 başlatırsınız, Aruna değil. Böyle bir aktarımda notlarınız, medyanız, ayarlarınız ve PIN'in
-özeti taşınır; kurtarma anahtarınız taşınmaz, çünkü eski cihazın anahtar deposuna bağlıdır ve
-yeni cihazda okunamaz. Aruna bu durumu açılışta fark eder ve size söyler; Güvenlik ve gizlilik
-ayarlarında kimliğinizi doğruladıktan sonra yeni bir kurtarma anahtarı oluşturursunuz, PIN'iniz
-değişmez. Verinizi kendiniz taşımanın güvenilir yolu aşağıdaki yedek dosyasıdır.
+özeti taşınır; Yedeklerim'deki yedekler taşınmaz, çünkü Android'in bu aktarıma almadığı bir
+klasörde dururlar. Kurtarma anahtarınız ve kayıtlı yedek parolanız da taşınmaz, çünkü eski
+cihazın anahtar deposuna bağlıdırlar ve yeni cihazda okunamazlar; dış klasörü de yeni cihazda
+yeniden seçersiniz. Aruna kurtarma anahtarının durumunu açılışta fark eder ve size söyler;
+Güvenlik ve gizlilik ayarlarında kimliğinizi doğruladıktan sonra yeni bir kurtarma anahtarı
+oluşturursunuz, PIN'iniz değişmez. Verinizi kendiniz taşımanın güvenilir yolu, paylaştığınız
+ya da kaydettiğiniz bir yedektir.
 
 ### Reklam, analitik ve izleme
 
@@ -201,7 +226,8 @@ Uygulama cihazınızdan kişisel veri okumaz. Görünüm ve zamanlama için sist
 yararlanır: dil, açık ya da koyu tema, animasyon ölçekleri ve hareketi azaltma gibi görünüm
 tercihleri, açtıysanız sistemin renk paleti ve hatırlatıcıları doğru saatte kurmak için saat
 diliminiz. Aruna'nın geliştirici seçeneklerini açtıysanız bir tanılama ekranı cihazınızın
-üreticisini ve modelini de gösterir; bu bilgi saklanmaz ve gönderilmez. Bunların hiçbiri
+üreticisini ve modelini de gösterir; bu bilgi saklanmaz ve gönderilmez. Yedekleme için
+cihazınızdaki boş yeri ve ekran kilidi kurulu olup olmadığını da okur. Bunların hiçbiri
 cihazınızdan çıkmaz.
 
 ### İzinler
@@ -236,10 +262,18 @@ Ses kütüphanesi bir ağ durumu izni (`ACCESS_NETWORK_STATE`) getiriyordu; bu i
 **İstenmeyen izinler:** internet, fotoğraf ve video okuma, depolama, kesin alarm, tüm
 uygulamaları görme, medya konumu, konum ve reklam kimliği.
 
+Bir yedeği paylaştığınızda hangi uygulamayı seçtiğinizi Yedekleme ve geri yükleme sayfasında
+gösterebilmek için Aruna, yedek dosyasını alabilen uygulamaları görebileceğini Android'e
+bildirir. Bu bir izin değildir, tüm uygulamaları görme izni de değildir; size sorulmaz ve izin
+listelerinde görünmez. Aruna bu uygulamaların listesini kullanmaz ve saklamaz; yalnızca
+seçtiğiniz uygulamanın adını okur, sayfada gösterir ve son dışarı yedeğin kaydında saklar.
+
 Görsel seçmek için izin istenmez: sistemin seçme ekranı açılır ve uygulamaya yalnızca
-seçtiğiniz görseller gelir. Yedek dosyası seçerken de sistemin dosya seçicisi kullanılır.
-Fotoğraf çekmek istediğinizde cihazınızın kendi kamera uygulaması açılır ve çektiğiniz kare
-uygulamaya döner; Aruna kameraya doğrudan erişmediği için kamera izni de istemez.
+seçtiğiniz görseller gelir. Geri yüklenecek yedek dosyasını seçerken, bir yedeği kaydederken
+ve dış klasörü seçerken de sistemin pencereleri kullanılır; Aruna yalnızca seçtiğiniz dosyaya
+ya da klasöre erişir. Fotoğraf çekmek istediğinizde cihazınızın kendi kamera uygulaması açılır
+ve çektiğiniz kare uygulamaya döner; Aruna kameraya doğrudan erişmediği için kamera izni de
+istemez.
 
 Bir izni vermezseniz yalnızca o özellik çalışmaz; uygulamanın kalanı çalışmaya devam eder.
 
@@ -265,22 +299,41 @@ cihazınızın içinde üretilir, bir sunucudan gelmez.
 
 ### Verinin cihazınızdan çıkabileceği durumlar
 
-Günlük içeriğiniz cihazınızdan yalnızca sizin başlattığınız dört yolla çıkar. Uygulama
-kendiliğinden hiçbir veri göndermez.
+Günlük içeriğiniz cihazınızdan yalnızca sizin seçtiğiniz dört yolla çıkar. Uygulama
+kendiliğinden hiçbir veri göndermez; dış klasörü açtıysanız kopyaları yalnızca o klasöre
+yazar.
 
-**1. Yedek dosyası.** Ayarlar > Yedekleme ve geri yükleme'den yedek aldığınızda verileriniz
-tek bir dosyaya yazılır; dosya cihazın İndirilenler klasörüne kaydedilir ve uygulama tam
-yolunu size gösterir. İndirilenler klasörü bulunamazsa dosya uygulamanın kendi dış klasörüne
-yazılır; o klasör uygulamaya aittir ve uygulamayı kaldırdığınızda silinir, bu yüzden böyle bir
-yedeği başka bir yere taşıyın. Yedek, seçiminize göre notlarınızı, görsellerinizi, ses
-kayıtlarınızı ve uygulama ayarlarınızı taşır; ayarların içinde adınız ve profil görseliniz de
-vardır. Kilitli notlarınız varsa onları yedeğe katıp katmayacağınızı siz seçersiniz;
-katarsanız dosya yazılmadan önce kimliğiniz doğrulanır. **Yedeği şifrelemek varsayılan
-seçenektir:** parolanızdan 150.000 turluk bir anahtar türetilir ve dosya AES ile şifrelenir.
-Parolayı siz belirlersiniz, uygulama onu saklamaz; kaybederseniz dosya açılamaz. Şifrelemeyi
-kapatırsanız dosya düz bir ZIP olarak yazılır ve onu açan herkes içini görebilir. Güvenlik
-anahtarlarınız (PIN'in özeti ve kurtarma anahtarınız) yedeğe girmez. Dosya yazıldıktan sonra
-sizindir; nereye taşıyacağınıza siz karar verirsiniz.
+**1. Yedek.** Ayarlar > Yedekleme ve geri yükleme'den aldığınız yedekler ve otomatik yedekler
+önce Yedeklerim'e, cihazınızın içine alınır ("Cihazınızda ne saklanıyor") ve siz seçmedikçe
+oradan çıkmaz. Otomatik yedek varsayılan olarak açıktır; Yedekleme ve geri yükleme sayfasından
+kapatabilir ya da sıklığını haftada bire çekebilirsiniz. Bir yedek üç yolla dışarı çıkar ve
+üçünü de siz seçersiniz: Paylaş, yedeği seçtiğiniz uygulamaya gönderir; Kaydet, sistemin
+kaydetme penceresini açar ve dosyayı sizin seçtiğiniz yere yazar (cihazınızdaki bir klasöre ya
+da pencerede görünen başka bir yere); "Dış klasöre de kopyala" anahtarını açarsanız her
+otomatik yedeğin şifreli bir kopyası seçtiğiniz klasöre yazılır. Dış klasör açık kaldıkça
+Aruna orada kendi yazdığı kopyaları 4 kopyalık bir döngüde tutar ve eskilerini siler; başka
+hiçbir dosyaya dokunmaz. Dış klasörü kapatır, değiştirir ya da erişim kesildikten sonra
+yeniden seçerseniz oradaki eski kopyalara dokunmaz. Seçtiğiniz klasör bir bulut uygulamasına
+aitse ya da onu başka bir uygulama eşitliyorsa kopyalar oradan o uygulamanın kurallarıyla
+çıkar; Kaydet ile pencerede başka bir uygulamanın yerini seçtiğinizde de dosyaya o uygulamanın
+kuralları uygulanır.
+
+Paylaş ve Kaydet'te yedek varsayılan olarak her şeyi taşır. Kilitli olmayan notlarınız her
+zaman girer; kilitli notlarınızı, görsellerinizi, ses kayıtlarınızı ve uygulama ayarlarınızı
+(adınız ve profil görseliniz dâhil) dışarıda bırakabilirsiniz. Aruna'da PIN kurduysanız Paylaş
+ya da Kaydet'e dokunduğunuzda ve dış klasörü açarken ya da değiştirirken kimliğiniz
+doğrulanır; dış klasöre her otomatik yedekte yazılan kopyalar için yeniden sorulmaz. **Yedeği
+parolayla korumak varsayılan seçenektir:** parolanızdan 600.000 turluk bir anahtar türetilir
+ve dosya parça parça AES-256 ile şifrelenir; her parça mühürlüdür, dosyada değiştirilen bir
+bayt dosya açılırken fark edilir. Dosyanın adı şifrelenmez: adında "Aruna", yedeğin türü,
+tarihi ve saati bulunur; yedeğe ad verdiyseniz Paylaş ve Kaydet'te o ad da bulunur. Parolayı
+siz belirlersiniz; kaydetmeyi seçerseniz Aruna onu yalnızca cihazınızda saklar ("Cihazınızda
+ne saklanıyor"), seçmezseniz saklamaz. Parolayı kaybederseniz dosya açılamaz. Parola
+korumasını kapatırsanız dosya düz bir ZIP olarak yazılır ve onu açan herkes içini görebilir.
+Dış klasöre giden kopyalar her zaman tam yedektir (kilitli notlarınız ve ayarlarınız dâhil) ve
+kayıtlı yedek parolanızla şifrelenir. Güvenlik anahtarlarınız (PIN'in özeti ve kurtarma
+anahtarınız) ve yedek parolanız yedeğe girmez. Dışarı çıkan dosya sizindir; nereye
+taşıyacağınıza siz karar verirsiniz.
 
 **2. Paylaşım.** Bir notu, görseli, ses kaydını ya da oluşturduğunuz PDF'i paylaştığınızda
 içerik seçtiğiniz uygulamaya gider. Paylaşımı siz başlatırsınız ve hedefi siz seçersiniz. Bir
@@ -304,11 +357,11 @@ bazı üreticilerin cihazlarında Aruna'nın verisi de yeni cihaza taşınabilir
 koruma").
 
 **Tanılama dosyası.** Notlarınız değildir ama cihazınızdan çıkabilen bir dosyadır ve yalnızca
-siz isterseniz gider: sorun bildirirken e-postaya eklemeyi seçtiğinizde ya da Ayarlar >
-Yardım > Tanılama sayfasından paylaştığınızda veya kopyaladığınızda. İçinde uygulamanın sürüm
-numarası ve hata kayıtları (zaman, hatanın türü ve iletisi, teknik iz) vardır; notlarınız
-için bir alan, görselleriniz, cihaz kimliğiniz ve cihaz modeliniz yoktur. Çok nadir bir
-istisna "Cihazınızda ne saklanıyor" bölümünde yazıyor. Dosyanın tamamını göndermeden önce
+siz isterseniz gider: sorun bildirirken e-postaya eklemeyi seçtiğinizde ya da Ayarlar > Yardım
+> Tanılama sayfasından paylaştığınızda veya kopyaladığınızda. İçinde uygulamanın sürüm
+numarası ve hata kayıtları (zaman, hatanın türü ve iletisi, teknik iz) vardır; notlarınız için
+bir alan, görselleriniz, cihaz kimliğiniz ve cihaz modeliniz yoktur. Hata iletileri kayda
+yazılmadan önce süzülür ("Cihazınızda ne saklanıyor"). Dosyanın tamamını göndermeden önce
 Tanılama sayfasında görebilirsiniz.
 
 **Veri çıkışı olmayan iki eylem.** Bana yazmayı seçtiğinizde cihazınızın e-posta uygulaması
@@ -333,8 +386,8 @@ işarettir: tıbbi bir amacı yoktur, teşhis veya tedavi için kullanılamaz ve
 da program sunmaz.
 
 "Ruh hâlini gizle" ayarı işareti uygulamanın tamamında gizler ama kayıtlı işaretleri silmez.
-Ruh hâli, notunuzu paylaştığınızda (bu ayar kapalıysa) ve yedek dosyasında cihazınızdan
-çıkabilir ("Verinin cihazınızdan çıkabileceği durumlar").
+Ruh hâli, notunuzu paylaştığınızda (bu ayar kapalıysa) ve bir yedekle cihazınızdan çıkabilir
+("Verinin cihazınızdan çıkabileceği durumlar").
 
 ### Saklama süresi ve silme
 
@@ -344,13 +397,46 @@ Verileriniz siz silene ya da uygulamayı kaldırana kadar saklanır; süre sın�
 kalıcı olarak silinir; bu süreyi 7, 14, 30, 60 ya da 90 gün yapabilirsiniz. Çöp kutusunu
 kapatırsanız sildiğiniz bir not onayınızdan sonra hemen kalıcı olarak silinir. Çöp kutusundan
 tek tek ya da hepsini birden kalıcı olarak silebilirsiniz. Bir not kalıcı olarak silindiğinde
-ona bağlı görsel, çizim ve ses dosyaları da cihazdan silinir.
+Aruna metnini veritabanı dosyasından da siler ve boşalan yerin üzerine yazar; ona bağlı
+görsel, çizim ve ses dosyalarını da uygulamanın medya klasörlerinden kaldırır (yedeklerdeki
+kopyaları için aşağıya bakın). Her cihazda olduğu gibi, cihazınızın hafızası silinen verinin
+eski izlerini bir süre tutabilir; bu izlere başka uygulamalar ulaşamaz ve cihazınız şifreliyse
+onlar da şifreli durur.
 
-Uygulamayı kaldırmak cihazdaki tüm Aruna verisini siler; uygulamanın kendi dış klasörüne
-yazılmış yedekler de buna dâhildir.
+Kalıcı olarak silinen bir not, daha önce alınmış yedeklerde durmaya devam eder:
+Yedeklerim'deki otomatik yedeklerde yeni otomatik yedekler onların yerini alana kadar, geri
+yüklemeden önce alınan güvenlik yedeğinde bir sonraki geri yüklemeye kadar, elle aldığınız
+yedeklerde ve ad verdiğiniz yedeklerde siz silene kadar. Günlüğünüz düzenli değiştikçe
+otomatik yedeklerin yenilenmesi en çok yaklaşık 2 ay sürer; otomatik yedek yalnızca günlüğünüz
+değiştiğinde alındığı için seyrek yazdığınızda ya da otomatik yedeği kapattığınızda eski
+yedekler daha uzun yerinde kalır.
 
-İndirilenler klasörüne aldığınız ya da başka bir yere taşıdığınız yedek dosyaları sizin
-dosyalarınızdır; onları bulundukları yerden siz silersiniz.
+Silinen not dış klasördeki kopyalarda da durur: dış klasör açıkken Aruna'nın döngüsü onları
+yenileyene kadar; klasörü kapattıysanız, değiştirdiyseniz ya da erişim kesildikten sonra
+yeniden seçtiyseniz oradaki eski kopyalarda siz silene kadar. Paylaştığınız ya da
+kaydettiğiniz yedeklerde de siz silene kadar durur. Paylaştığınız bir yedeğin kopyası, alıcı
+uygulama okuyabilsin diye uygulamanın kendi alanında en az 24 saat kalır ve ondan sonraki ilk
+açılışta silinir.
+
+Yedeklerim'deki yedekleri orada tek tek ya da Ayarlar > Depolama > Verileri temizle >
+Yedekler'den topluca silebilirsiniz; Depolama'dan bütün notları kalıcı olarak silerken
+"Yedekleri de sil" kutusunu işaretlerseniz yedekler de silinir. Bu silmeler dışarı
+çıkardığınız yedekleri ve dış klasördeki kopyaları etkilemez.
+
+Aruna, hiçbir nota bağlı olmayan görsel ve ses dosyalarını (örneğin yarıda kalmış bir işlemden
+kalanları) hemen silmez: önce en az 30 gün ayrı bir klasörde bekletir. Bu sürede bir nota
+yeniden bağlanırlarsa (örneğin bir geri yüklemeyle) yerlerine dönerler; bağlanmazlarsa
+silinirler.
+
+Uygulamayı kaldırmak, Aruna'nın kendi alanındaki bütün veriyi siler; Yedeklerim'deki yedekler
+de buna dâhildir. Dış klasördeki kopyalar silinmez (aşağıda).
+
+Paylaştığınız ya da kaydettiğiniz yedekler sizin dosyalarınızdır; uygulamayı kaldırmak onları
+silmez, onları bulundukları yerden siz silersiniz. Dış klasör açık kaldıkça oradaki eski
+kopyaları Aruna kendi döngüsünde siler; dış klasörü kapattığınızda ya da değiştirdiğinizde ve
+uygulamayı kaldırdığınızda orada kalan kopyalar sizin dosyalarınızdır, onları da siz
+silersiniz. Önceki sürümlerin İndirilenler klasörüne yazdığı yedek dosyaları da sizin
+dosyalarınızdır; uygulamanın kendi dış klasörüne yazılanlar ise uygulamayı kaldırınca silinir.
 
 Bana gönderdiğiniz bir şeyin (bir e-posta, not, görsel ya da tanılama dosyası) ya da kapalı
 test listesindeki adresinizin silinmesini isterseniz destek adresime yazabilirsiniz.
@@ -373,7 +459,7 @@ değişiklik o sürümün notlarında da yazılır.
 
 ## Privacy Policy
 
-**Version:** 1.2 · **Effective:** 25 September 2026
+**Version:** 1.3 · **Effective:** 2 October 2026
 **Contact:** destek@hb4.aleeas.com
 
 ### Summary
@@ -382,8 +468,10 @@ Aruna is free. It has no ads, paid features, subscriptions or in-app purchases. 
 ask for an account, does not connect to a server and does not ask for the internet permission.
 
 What you write, your images and your audio recordings stay on your device. They leave your
-device only in ways you choose: when you export a backup file, when you share or copy
-something, and when you use Android's transfer while moving to a new device.
+device only in ways you choose: when you share or save a backup, when you choose an external
+folder for backups, when you share or copy something, and when you use Android's transfer
+while moving to a new device. Automatic backups stay inside your device; if you chose an
+external folder, an encrypted copy of each one is also written there.
 
 **I cannot see your entries.** Of your entries, I only see what you send me yourself, for
 example an entry or a screenshot you send to show me a problem. This applies only to Aruna.
@@ -403,8 +491,9 @@ do and whether it contains the content of your entries.
 - **Your entries on your device:** their titles, text, images, drawings, audio recordings,
   tags and moods. Because Aruna has no internet permission, the app cannot send any of them
   over the internet to me or anywhere else.
-- **Your PIN and your recovery key.** Aruna stores both only on your device (not the PIN
-  itself, only its hash) and does not put them in backup files.
+- **Your PIN, your recovery key and your backup password.** Aruna stores all three only on
+  your device (not the PIN itself, only its hash; and the backup password only if you choose
+  to save it) and does not put them in backups.
 - **Your fingerprint and your face.** Android verifies them; even Aruna only sees the
   "verified" or "not verified" result.
 - **How you use Aruna.** Aruna has no analytics and no usage measurement; I don't know which
@@ -421,9 +510,9 @@ do and whether it contains the content of your entries.
   empty template; you decide what to write and send.
 - **The diagnostic file.** If you choose to attach it when reporting a problem, I see the
   app's error records: the time, the version number, the error's type and message, and a
-  technical trace. The records have no field for your entries; a very rare exception is
-  described under "What is stored on your device". Before you send it, you can read the whole
-  file under Settings > Help > Diagnostics.
+  technical trace. The records have no field for your entries, and error messages are filtered
+  before they are written (see "What is stored on your device"). Before you send it, you can
+  read the whole file under Settings > Help > Diagnostics.
 - **Your testing feedback and your review.** I see the private feedback you write on Google
   Play during the closed test (early access) and the review you post on the store; you write
   both yourself. Only I see the private feedback. Along with a review or feedback, Google Play
@@ -478,7 +567,7 @@ Samsung device and from Google's own Android 14 interface.
    cannot connect to the network even when they are on.
 4. **Airplane mode.** Turn on airplane mode and make sure Wi-Fi is off too; on some devices
    airplane mode leaves Wi-Fi on. Every feature of Aruna keeps working: writing, adding images
-   and drawings, recording audio, creating a PDF and exporting a backup.
+   and drawings, recording audio, creating a PDF and taking a backup.
 5. **The Data safety section and the labels on Google Play.** The "Data safety" section on
    Aruna's Play page says that no data is shared with third parties and that no data is
    collected. This section is my declaration to Google; Google Play presents it as what the
@@ -497,8 +586,9 @@ developer name on Google Play is HB4sri. For questions and requests, you can wri
 
 ### What is stored on your device
 
-Everything the app stores lives in your device's private storage reserved for the app. The
-database file and the media folders are there; other apps cannot reach them.
+Everything the app stores, except the backup copies it writes to the external folder, lives in
+your device's private storage reserved for the app. The database file, the media folders and
+My backups are there; other apps cannot reach them.
 
 **Your diary content:** each entry's title, body (with its formatting), the date and time the
 entry belongs to, the moment you actually wrote it (the two differ when you write for a past
@@ -511,22 +601,41 @@ image; theme, color, font and text size, language, notification and privacy pref
 reminder text you write yourself, the names and colors you give to moods, the favorite colors
 you save for drawing, your recent searches, and the trash retention period.
 
+**Your backups:** the My backups section of the Backup and restore page holds the automatic
+backups, the backups you take yourself and the safety backups taken before a restore. Each one
+is a copy of your diary at the moment it was taken: your entries (locked entries included),
+images, audio recordings, settings and profile image. My backups is in the app's private
+storage, in a folder that Android leaves out of its own backup (Google Drive) and out of
+device-to-device transfer. Aruna does not additionally encrypt the backups there; they have
+the same protection as the live database (see "Protection on the device"). Copies written to
+the external folder, on the other hand, sit outside this storage, in the folder you choose
+(see "When data can leave your device"). Aruna also keeps brief records about the backups:
+each backup's time, size, entry and media counts and the name you give it; when and where you
+last moved a backup out of Aruna (the name of the app you chose or of the place you saved to);
+the external folder's address and name if you chose one; the times of automatic backups and of
+backup reminders; a summary that tells whether your diary has changed, from which no content
+can be read back; and a random marker that Aruna creates itself to tell whether these records
+came from another device (it is not a device ID).
+
 **Security:** if you set a PIN, only its salted hash is stored, never the PIN itself. Your
 recovery key is stored encrypted with Android's keystore; that key is bound to your device and
-never leaves it.
+never leaves it. If you choose to save your backup password, it too is stored encrypted with
+Android's keystore, only on your device, and it is not included in backups.
 
 **Diagnostics:** if the app hits an error, a technical record is added to a file kept on the
 device for diagnostics: the time, the app version, the error's type, its message and a
 technical trace. The records have no field for your entries; at most 50 are kept, older ones
-are dropped, and nothing is sent anywhere on its own. In very rare cases an error's message can
-carry a few words of something you wrote; for example, the message of the error raised while
-opening an entry whose saved data is damaged shows a piece of that entry. That is why you can
-see inside the diagnostic file before you send it (see "When data can leave your device").
+are dropped, and nothing is sent anywhere on its own. An error's message is filtered before it
+is written: the part that could carry data (for example, the content of an entry or a tag, or
+a file path) is dropped, and the message of an error Aruna does not recognize is not written
+at all. Records written by app versions from before this filter are also filtered when the app
+starts; at most the first line of their message is kept. You can still see inside the
+diagnostic file before you send it (see "When data can leave your device").
 
 **Not stored:** your email address, phone number, location, contacts, device ID or advertising
 ID. None of these are requested or kept. The name you give the app is stored only on your
-device; where it goes when you share a PDF or export a backup is described under "When data
-can leave your device".
+device; where it goes when you share a PDF or move a backup out of Aruna is described under
+"When data can leave your device".
 
 ### Protection on the device
 
@@ -547,11 +656,14 @@ settings. There is also a separate switch that protects the whole app, off by de
 **Android's cloud backup is disabled in the app:** your data is not included in a Google Drive
 backup. When you move to a new device, however, the operating system's device-to-device
 transfer may carry Aruna's data on devices from some manufacturers; you and the operating
-system start that, not Aruna. In such a transfer your entries, media, settings and the PIN hash
-are carried over; your recovery key is not, because it is bound to the old device's keystore
-and cannot be read on the new one. Aruna notices this when it starts and tells you; under
-Security and privacy, after confirming your identity, you create a new recovery key and your PIN
-stays the same. The reliable way to move your data yourself is the backup file below.
+system start that, not Aruna. In such a transfer your entries, media, settings and the PIN
+hash are carried over; the backups in My backups are not, because they sit in a folder that
+Android leaves out of this transfer. Your recovery key and your saved backup password are not
+carried over either, because they are bound to the old device's keystore and cannot be read on
+the new one; you also choose the external folder again on the new device. Aruna notices the
+recovery key's state when it starts and tells you; under Security and privacy, after
+confirming your identity, you create a new recovery key and your PIN stays the same. The
+reliable way to move your data yourself is a backup you share or save.
 
 ### Ads, analytics and tracking
 
@@ -565,7 +677,8 @@ data from your device. For appearance and scheduling it uses your system setting
 preferences such as language, light or dark theme, animation scales and reduced motion, the
 system color palette if you enable it, and your time zone so that reminders fire at the right
 hour. If you turn on Aruna's developer options, a diagnostic screen also shows your device's
-manufacturer and model; this is not stored or sent. None of these leave your device.
+manufacturer and model; this is not stored or sent. For backups, it also reads the free space
+on your device and whether a screen lock is set up. None of these leave your device.
 
 ### Permissions
 
@@ -602,11 +715,19 @@ connection state.
 **Permissions that are not requested:** internet, reading photos and video, storage, exact
 alarms, seeing all installed apps, media location, location, and the advertising ID.
 
+So that the Backup and restore page can show which app you chose when you share a backup,
+Aruna tells Android that it may see the apps that can receive a backup file. This is not a
+permission, nor the permission to see all installed apps; you are not asked, and it does not
+appear in permission lists. Aruna does not use or store the list of these apps; it reads only
+the name of the app you choose, shows it on the page and keeps it in the record of your last
+backup outside Aruna.
+
 No permission is asked to pick an image: the system's picker opens and only the images you
-select reach the app. The system file picker is likewise used to choose a backup file. When you
-want to take a photo, your device's own camera app opens and the picture you take is returned
-to the app; because Aruna never accesses the camera directly, it does not ask for the camera
-permission either.
+select reach the app. The system's windows are likewise used to choose a backup file to
+restore, to save a backup and to choose the external folder; Aruna can reach only the file or
+folder you choose. When you want to take a photo, your device's own camera app opens and the
+picture you take is returned to the app; because Aruna never accesses the camera directly, it
+does not ask for the camera permission either.
 
 If you decline a permission, only that feature stops working; the rest of the app carries on.
 
@@ -632,22 +753,42 @@ moment. They are produced inside your device and do not come from a server.
 
 ### When data can leave your device
 
-Your diary content leaves your device only in four ways, and you start all of them. The app
-never sends anything on its own.
+Your diary content leaves your device only in four ways, and you choose all of them. The app
+never sends anything on its own; if you turned on the external folder, it writes copies only
+to that folder.
 
-**1. Backup file.** When you export a backup from Settings > Backup and restore, your data is
-written to a single file; the file is saved to the device's Downloads folder and the app shows
-you its full path. If the Downloads folder cannot be found, the file is written to the app's
-own external folder instead; that folder belongs to the app and is deleted when you uninstall
-it, so move such a backup somewhere else. Depending on your choices, the backup carries your
-entries, images, audio recordings and app settings; the settings include your name and your
-profile image. If you have locked entries, you choose whether to include them; if you do, your
-identity is verified before the file is written. **Encrypting the backup is the default
-choice:** a key is derived from your password with 150,000 iterations and the file is
-encrypted with AES. You choose the password and the app does not store it; if you lose it, the
-file cannot be opened. If you turn encryption off, the file is written as a plain ZIP and
-anyone who opens it can see what is inside. Your security keys (the PIN hash and your recovery
-key) are not included in the backup. Once written, the file is yours; you decide where it goes.
+**1. Backup.** Backups you take in Settings > Backup and restore and automatic backups are
+first kept in My backups, inside your device (see "What is stored on your device"), and they
+do not leave it unless you choose to. Automatic backup is on by default; you can turn it off
+or set it to once a week on the Backup and restore page. A backup leaves in three ways, and
+you choose each of them: Share sends the backup to the app you choose; Save opens the system's
+save window and writes the file where you choose (a folder on your device or another place
+shown in that window); and if you turn on "Also copy to an external folder", an encrypted copy
+of each automatic backup is written to the folder you choose. While the external folder is on,
+Aruna keeps the copies it wrote there in a rotation of 4 and deletes the older ones; it
+touches no other file. If you turn the external folder off, change it, or choose it again
+after access to it was lost, Aruna leaves the older copies there untouched. If the folder you
+choose belongs to a cloud app or another app syncs it, the copies leave from there under that
+app's rules; likewise, when you use Save and pick another app's location in the window, that
+app's rules apply to the file.
+
+With Share and Save, a backup carries everything by default. Your unlocked entries always go
+in; you can leave out your locked entries, images, audio recordings and app settings
+(including your name and profile image). If you set up a PIN in Aruna, your identity is
+verified when you tap Share or Save and when you turn on or change the external folder; it is
+not asked again for each copy written to the external folder. **Protecting the backup with a
+password is the default choice:** a key is derived from your password with 600,000 iterations
+and the file is encrypted piece by piece with AES-256; every piece is sealed, so a byte
+changed in the file is noticed when the file is opened. The file name is not encrypted: it
+contains "Aruna" and the backup's type, date and time, and with Share and Save also the name
+you gave the backup, if any. You choose the password; if you choose to save it, Aruna keeps it
+only on your device (see "What is stored on your device"), and if you do not, it does not keep
+it. If you lose the password, the file cannot be opened. If you turn password protection off,
+the file is written as a plain ZIP and anyone who opens it can see what is inside. Copies
+going to the external folder are always full backups (your locked entries and settings
+included) and are encrypted with your saved backup password. Your security keys (the PIN hash
+and your recovery key) and your backup password are not included in the backup. A file that
+has left the app is yours; you decide where it goes.
 
 **2. Sharing.** When you share an entry, an image, an audio recording or a PDF you created, the
 content goes to the app you pick. You start the share and you choose the destination. When you
@@ -675,8 +816,8 @@ goes only if you want it to: when you choose to attach it while reporting a prob
 or when you share or copy it from Settings > Help > Diagnostics. It contains the app's version
 number and the error records (time, the error's type and message, a technical trace); it has
 no field for your entries and contains none of your images, no device ID and no device model.
-A very rare exception is described under "What is stored on your device". You can see the
-whole file on the Diagnostics page before you send it.
+Error messages are filtered before they are written (see "What is stored on your device"). You
+can see the whole file on the Diagnostics page before you send it.
 
 **Two actions that are not data exits.** When you choose to write to me, your device's email
 app opens with only the address, the subject and an empty template (if there is no email app,
@@ -700,8 +841,8 @@ medical purpose, cannot be used for diagnosis or treatment, and offers you no ad
 program.
 
 The "Hide mood" setting hides the mark throughout the app but does not delete the saved marks.
-The mood can leave your device when you share an entry (if that setting is off) and in the
-backup file (see "When data can leave your device").
+The mood can leave your device when you share an entry (if that setting is off) and with a
+backup (see "When data can leave your device").
 
 ### Retention and deletion
 
@@ -709,16 +850,47 @@ Your data is kept until you delete it or uninstall the app; there is no time lim
 
 While the trash is on (the default), entries you delete go to the trash first and are
 permanently deleted after 30 days; you can change this period to 7, 14, 30, 60 or 90 days. If
-you turn the trash off, an entry you delete is permanently deleted right after you confirm. You
-can permanently delete items from the trash one by one or all at once. When an entry is
-permanently deleted, the image, drawing and audio files attached to it are deleted from the
-device as well.
+you turn the trash off, an entry you delete is permanently deleted right after you confirm.
+You can permanently delete items from the trash one by one or all at once. When an entry is
+permanently deleted, Aruna deletes its text from the database file too and overwrites the
+space it freed; it also removes the image, drawing and audio files attached to it from the
+app's media folders (for the copies in backups, see below). Like any device, yours may keep
+old traces of deleted data in its storage for a while; other apps cannot reach these traces,
+and if your device is encrypted, they stay encrypted too.
 
-Uninstalling the app deletes all Aruna data on the device, including backups written to the
-app's own external folder.
+A permanently deleted entry stays in backups taken earlier: in the automatic backups in My
+backups until new automatic backups replace them, in the safety backup taken before a restore
+until the next restore, and in backups you take yourself or name until you delete them. As
+your diary keeps changing, replacing the automatic backups takes up to about 2 months; because
+an automatic backup is taken only when your diary has changed, older backups stay in place
+longer if you write rarely or turn automatic backup off.
 
-Backup files you saved to the Downloads folder or moved elsewhere are your files; you delete
-them from wherever they are.
+The deleted entry also stays in the copies in the external folder: while the external folder
+is on, until Aruna's rotation replaces them; and if you turned the folder off, changed it, or
+chose it again after access to it was lost, in the older copies there until you delete them.
+It also stays in backups you shared or saved until you delete them. A copy of a backup you
+share stays in the app's own storage for at least 24 hours so that the receiving app can read
+it, and is deleted the first time the app starts after that.
+
+You can delete the backups in My backups one by one there, or all at once under Settings >
+Storage > Clear data > Backups; if you check "Also delete the backups" while permanently
+deleting all entries from Storage, the backups are deleted too. These deletions do not affect
+backups you shared or saved, or copies in the external folder.
+
+Aruna does not delete image and audio files that are not attached to any entry (for example,
+leftovers from an interrupted operation) right away: it first holds them in a separate folder
+for at least 30 days. If they are attached to an entry again during that time (for example, by
+a restore), they return to their place; otherwise they are deleted.
+
+Uninstalling the app deletes all data in Aruna's own storage, including the backups in My
+backups. Copies in the external folder are not deleted (see below).
+
+Backups you shared or saved are your files; uninstalling the app does not delete them, and you
+delete them from wherever they are. While the external folder is on, Aruna deletes the older
+copies there in its own rotation; the copies left there when you turn the external folder off
+or change it, or when you uninstall the app, are your files, and you delete them yourself too.
+Backup files that earlier versions wrote to the Downloads folder are your files too; those
+written to the app's own external folder are deleted when you uninstall the app.
 
 If you want something you sent me (an email, an entry, an image or a diagnostic file) or your
 address on the closed test list deleted, you can write to my support address.

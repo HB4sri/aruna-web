@@ -14,7 +14,7 @@ Hesap istemez, bir sunucuya bağlanmaz ve internet izni istemez. Yazdıklarını
 - **Yazın, görsel ekleyin, ses kaydedin.** Biçimlendirilmiş metin, görsel, çizim ve ses kaydı aynı notun içinde.
 - **Kilit sizde kalır.** PIN ve parmak izi ile kilitleyebilirsiniz; kilitli notlar bildirimlere hiç girmez.
 - **Notlarınızı göremem.** Uygulamanın internet izni yok; bir notu paylaşırsanız kimin göreceğini siz seçersiniz.
-- **Yedeğinizi siz taşırsınız.** Tek dosyaya yedek alır, istediğiniz yerde saklarsınız.
+- **Yedeğinizi siz taşırsınız.** Otomatik yedekler cihazınızda durur; bir yedeği paylaşabilir ya da istediğiniz yere kaydedebilirsiniz.
 {: .ozellikler}
 
 Destek: [destek@hb4.aleeas.com](mailto:destek@hb4.aleeas.com)
@@ -34,7 +34,7 @@ It asks for no account, connects to no server and does not ask for the internet 
 - **Write, add images, record audio.** Formatted text, images, drawings and audio recordings in the same entry.
 - **The lock stays with you.** Lock entries with a PIN or your fingerprint; locked entries never appear in notifications.
 - **I cannot see your entries.** The app has no internet permission; if you share an entry, you choose who sees it.
-- **Your backup is yours to carry.** Back up to a single file and keep it wherever you like.
+- **Your backup is yours to carry.** Automatic backups stay on your device; you can share a backup or save it wherever you like.
 {: .ozellikler}
 
 Contact: [destek@hb4.aleeas.com](mailto:destek@hb4.aleeas.com)
