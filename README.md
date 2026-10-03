@@ -6,12 +6,13 @@ Aruna'nın halka açık belgelerini yayınlayan küçük site.
 **Gizlilik politikası:** <https://hb4sri.github.io/aruna-web/gizlilik/>
 
 Aruna, günlük ve not defteri için bir Android uygulamasıdır. Hesap istemez,
-sunucusu yoktur ve internet izni bile yoktur.
+sunucusu yoktur; internet izni de yoktur.
 
 ---
 
 The small site that publishes Aruna's public documents. Aruna is an Android
-journal app: no account, no server, not even the internet permission.
+diary app. It doesn't need an account or a server, and it has no internet
+permission.
 
 ## Deponun düzeni
 
