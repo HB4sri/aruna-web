@@ -17,7 +17,7 @@ Hesap istemez, bir sunucuya bağlanmaz; internet izni de yok. Yazdıklarınız c
 - **Otomatik yedek** Otomatik yedekler cihazınızda durur; bir yedeği paylaşabilir ya da istediğiniz yere kaydedebilirsiniz.
 {: .ozellikler}
 
-Destek: [destek@hb4.aleeas.com](mailto:destek@hb4.aleeas.com)
+Destek: [support@hb4.aleeas.com](mailto:support@hb4.aleeas.com)
 {: .destek}
 
 ## English
@@ -37,5 +37,5 @@ It doesn't need an account or connect to a server, and it has no internet permis
 - **Automatic backup** Automatic backups stay on your device; you can share a backup or save it wherever you like.
 {: .ozellikler}
 
-Contact: [destek@hb4.aleeas.com](mailto:destek@hb4.aleeas.com)
+Contact: [support@hb4.aleeas.com](mailto:support@hb4.aleeas.com)
 {: .destek}

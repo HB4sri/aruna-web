@@ -6,8 +6,8 @@
 
 ## Gizlilik Politikası
 
-**Sürüm:** 1.3 · **Yürürlük:** 2 Ekim 2026
-**İletişim:** destek@hb4.aleeas.com
+**Sürüm:** 1.4 · **Yürürlük:** 8 Ekim 2026
+**İletişim:** support@hb4.aleeas.com
 
 ### Özet
 
@@ -131,7 +131,7 @@ cihazdan ve Google'ın kendi Android 14 arayüzünden alınmıştır.
 
 Aruna'yı bağımsız bir geliştirici olarak tek başıma yapıyorum; arkasında bir şirket yok.
 Google Play'deki geliştirici adım HB4sri. Sorularınız ve talepleriniz için bana
-yazabilirsiniz: **destek@hb4.aleeas.com**
+yazabilirsiniz: **support@hb4.aleeas.com**
 
 ### Cihazınızda ne saklanıyor
 
@@ -453,14 +453,14 @@ değişiklik o sürümün notlarında da yazılır.
 
 ### İletişim
 
-**destek@hb4.aleeas.com**
+**support@hb4.aleeas.com**
 
 ---
 
 ## Privacy Policy
 
-**Version:** 1.3 · **Effective:** 2 October 2026
-**Contact:** destek@hb4.aleeas.com
+**Version:** 1.4 · **Effective:** 8 October 2026
+**Contact:** support@hb4.aleeas.com
 
 ### Summary
 
@@ -582,7 +582,7 @@ Samsung device and from Google's own Android 14 interface.
 
 I make Aruna on my own, as an independent developer; there is no company behind it. My
 developer name on Google Play is HB4sri. For questions and requests, you can write to me:
-**destek@hb4.aleeas.com**
+**support@hb4.aleeas.com**
 
 ### What is stored on your device
 
@@ -907,4 +907,4 @@ is also described in the release notes of that version.
 
 ### Contact
 
-**destek@hb4.aleeas.com**
+**support@hb4.aleeas.com**
