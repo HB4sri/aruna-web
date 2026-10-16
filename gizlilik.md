@@ -6,7 +6,7 @@
 
 ## Gizlilik Politikası
 
-**Sürüm:** 1.4 · **Yürürlük:** 8 Ekim 2026
+**Sürüm:** 1.5 · **Yürürlük:** 16 Ekim 2026
 **İletişim:** support@hb4.aleeas.com
 
 ### Özet
@@ -143,7 +143,9 @@ oradadır; başka uygulamalar oraya giremez.
 olduğu tarih ve saat, notu gerçekten yazdığınız an (geçmiş bir güne yazdığınızda ikisi
 farklıdır), son düzenleme zamanı, varsa ruh hâli işareti, favori ve kilit durumu, çöp
 kutusuna atıldıysa silinme zamanı. Nota eklediğiniz görseller ve çizimleriniz, ses kayıtları
-ve süreleri, oluşturduğunuz etiketler ve renkleri.
+ve süreleri, oluşturduğunuz etiketler ve renkleri. Kamerayla çektiğiniz ve henüz nota
+kaydetmediğiniz bir görsel de siz karar verene kadar burada bekler ("Görsellerin üst
+verisi").
 
 **Profiliniz ve ayarlarınız:** uygulamaya verdiğiniz ad ve seçtiyseniz profil görseliniz;
 tema, renk, yazı tipi ve yazı boyutu, dil, bildirim ve gizlilik tercihleri; kendi yazdığınız
@@ -180,10 +182,12 @@ kayıtlar da açılışta süzülür; onlarda iletinin en çok ilk satırı kal�
 göndermeden önce içini yine görebilirsiniz ("Verinin cihazınızdan çıkabileceği durumlar").
 
 **Saklanmayanlar:** e-posta adresiniz, telefon numaranız, konumunuz, kişileriniz, cihaz
-kimliğiniz ve reklam kimliğiniz. Bunların hiçbiri istenmez ve saklanmaz. Uygulamaya verdiğiniz
-ad yalnızca cihazınızda saklanır; bir PDF paylaştığınızda ya da bir yedeği dışarı
-çıkardığınızda adın nereye gittiği "Verinin cihazınızdan çıkabileceği durumlar" bölümünde
-yazıyor.
+kimliğiniz ve reklam kimliğiniz. Bunların hiçbiri istenmez ve saklanmaz. İstisna, bir görselin
+içinde gelen konumdur: Aruna onu kaydettiği dosyaya hiç yazmaz, ama nota kaydedilmeyi bekleyen
+görselde ve sistemin uygulamaya verdiği geçici kopyada "Görsellerin üst verisi" bölümünde
+anlatılan süre boyunca durur. Uygulamaya verdiğiniz ad yalnızca cihazınızda saklanır; bir PDF
+paylaştığınızda ya da bir yedeği dışarı çıkardığınızda adın nereye gittiği "Verinin
+cihazınızdan çıkabileceği durumlar" bölümünde yazıyor.
 
 ### Cihazda koruma
 
@@ -192,7 +196,8 @@ cihaz şifrelemesi, Android'in uygulama kum havuzu (başka uygulamalar Aruna'nı
 erişemez) ve isterseniz kurduğunuz uygulama kilidi.
 
 Uygulama kilidi PIN ya da cihazınızın biyometrisiyle açılır ve seçtiğiniz süre sonunda
-kendiliğinden kilitlenir. Notları tek tek de kilitleyebilirsiniz.
+kendiliğinden kilitlenir. Uygulama kilidi açıkken Android 13 ve üstünde "son uygulamalar"
+listesi Aruna'nın ekranını önizleme olarak göstermez. Notları tek tek de kilitleyebilirsiniz.
 
 **Biyometrik veriniz uygulamaya hiç gelmez.** Parmak izinizi ya da yüzünüzü Android doğrular;
 Aruna yalnızca "doğrulandı" ya da "doğrulanmadı" sonucunu görür.
@@ -205,14 +210,14 @@ kapalıdır.
 **Android'in bulut yedeği uygulamada kapalıdır:** verileriniz Google Drive yedeğine dâhil
 edilmez. Yeni bir cihaza geçerken işletim sisteminin cihazdan cihaza aktarımı ise bazı
 üreticilerin cihazlarında Aruna'nın verisini taşıyabilir; bunu siz ve işletim sistemi
-başlatırsınız, Aruna değil. Böyle bir aktarımda notlarınız, medyanız, ayarlarınız ve PIN'in
-özeti taşınır; Yedeklerim'deki yedekler taşınmaz, çünkü Android'in bu aktarıma almadığı bir
-klasörde dururlar. Kurtarma anahtarınız ve kayıtlı yedek parolanız da taşınmaz, çünkü eski
-cihazın anahtar deposuna bağlıdırlar ve yeni cihazda okunamazlar; dış klasörü de yeni cihazda
-yeniden seçersiniz. Aruna kurtarma anahtarının durumunu açılışta fark eder ve size söyler;
-Güvenlik ve gizlilik ayarlarında kimliğinizi doğruladıktan sonra yeni bir kurtarma anahtarı
-oluşturursunuz, PIN'iniz değişmez. Verinizi kendiniz taşımanın güvenilir yolu, paylaştığınız
-ya da kaydettiğiniz bir yedektir.
+başlatırsınız, Aruna değil. Böyle bir aktarımda notlarınız, medyanız (nota kaydedilmeyi
+bekleyen görseller dâhil), ayarlarınız ve PIN'in özeti taşınır; Yedeklerim'deki yedekler
+taşınmaz, çünkü Android'in bu aktarıma almadığı bir klasörde dururlar. Kurtarma anahtarınız ve
+kayıtlı yedek parolanız da taşınmaz, çünkü eski cihazın anahtar deposuna bağlıdırlar ve yeni
+cihazda okunamazlar; dış klasörü de yeni cihazda yeniden seçersiniz. Aruna kurtarma anahtarının
+durumunu açılışta fark eder ve size söyler; Güvenlik ve gizlilik ayarlarında kimliğinizi
+doğruladıktan sonra yeni bir kurtarma anahtarı oluşturursunuz, PIN'iniz değişmez. Verinizi
+kendiniz taşımanın güvenilir yolu, paylaştığınız ya da kaydettiğiniz bir yedektir.
 
 ### Reklam, analitik ve izleme
 
@@ -374,10 +379,21 @@ yoldan açılırsa açılsın uygulama tarayıcıya adresten başka bir şey ver
 
 ### Görsellerin üst verisi
 
-Nota eklediğiniz görseller uygulamaya alınırken yeniden kodlanır. Bunun sonucu şudur: görselin
-içindeki üst veri (konum, çekim tarihi, kamera bilgisi) Aruna'nın kaydettiği dosyaya
-**girmez** ve paylaştığınız dosyada da bulunmaz. Seçim sırasında sistemin verdiği özgün kopya,
-işlem biter bitmez silinir.
+Bir görselin içindeki kişisel üst veri (konum, çekim tarihi, kamera ve cihaz bilgisi) Aruna'nın
+kaydettiği dosyaya **girmez** ve paylaştığınız dosyada da bulunmaz. Bunun yolu, Ayarlar >
+Depolama'da seçtiğiniz görsel kalitesine göre değişir. Orijinal'de JPEG ve PNG görseller
+yeniden kodlanmaz: Aruna bu üst veriyi dosyadan siler; görselin doğru görünmesi için gereken
+teknik bilgi (yön ve renk profili gibi) dosyada kalır. Kırptığınız görseller, profil görseli ve
+başka biçimdeki görseller Orijinal'de de yeniden kodlanır; öteki kalite seviyelerinde her
+görsel yeniden kodlanır. Yeniden kodlanan dosyaya üst veri hiç yazılmaz.
+
+Bir nota eklemek için kamerayla çektiğiniz görsel, siz onu kaydedene ya da silene kadar
+kameranın verdiği hâliyle, üst verisiyle birlikte uygulamanın özel alanında bekler. Uygulama bu
+sırada kapanırsa görsel saklı kalır ve bir sonraki açılışta size sorulur. Bekleyen görsel
+Aruna'nın yedeklerine girmez; cihazdan cihaza aktarımda ise öteki verilerinizle birlikte
+taşınabilir ("Cihazda koruma"). Öteki durumlarda (galeriden seçim, profil görseli) sistemin
+uygulamaya verdiği kopya işlem biter bitmez silinir; uygulama arada kapanırsa sonraki
+açılışlardan birinde temizlenir. Galerinizdeki asıl görsele dokunulmaz.
 
 ### Ruh hâli işareti
 
@@ -426,7 +442,9 @@ Yedekler'den topluca silebilirsiniz; Depolama'dan bütün notları kalıcı olar
 Aruna, hiçbir nota bağlı olmayan görsel ve ses dosyalarını (örneğin yarıda kalmış bir işlemden
 kalanları) hemen silmez: önce en az 30 gün ayrı bir klasörde bekletir. Bu sürede bir nota
 yeniden bağlanırlarsa (örneğin bir geri yüklemeyle) yerlerine dönerler; bağlanmazlarsa
-silinirler.
+silinirler. Kamerayla çekip henüz nota kaydetmediğiniz görseller bunun dışındadır: bütün
+notları ya da bütün görselleri silmek de onlara dokunmaz, siz karar verene kadar dururlar
+("Görsellerin üst verisi").
 
 Uygulamayı kaldırmak, Aruna'nın kendi alanındaki bütün veriyi siler; Yedeklerim'deki yedekler
 de buna dâhildir. Dış klasördeki kopyalar silinmez (aşağıda).
@@ -459,7 +477,7 @@ değişiklik o sürümün notlarında da yazılır.
 
 ## Privacy Policy
 
-**Version:** 1.4 · **Effective:** 8 October 2026
+**Version:** 1.5 · **Effective:** 16 October 2026
 **Contact:** support@hb4.aleeas.com
 
 ### Summary
@@ -594,7 +612,9 @@ My backups are there; other apps cannot reach them.
 entry belongs to, the moment you actually wrote it (the two differ when you write for a past
 day), the last edit time, the mood mark if you left one, its favorite and locked state, and
 the deletion time if it is in the trash. The images and drawings you add to entries, audio
-recordings and their durations, and the tags you create with their colors.
+recordings and their durations, and the tags you create with their colors. An image you have
+taken with the camera but not yet saved to an entry also waits here until you decide ("Image
+metadata").
 
 **Your profile and settings:** the name you give the app and, if you choose one, your profile
 image; theme, color, font and text size, language, notification and privacy preferences; the
@@ -633,9 +653,12 @@ starts; at most the first line of their message is kept. You can still see insid
 diagnostic file before you send it (see "When data can leave your device").
 
 **Not stored:** your email address, phone number, location, contacts, device ID or advertising
-ID. None of these are requested or kept. The name you give the app is stored only on your
-device; where it goes when you share a PDF or move a backup out of Aruna is described under
-"When data can leave your device".
+ID. None of these are requested or kept. The exception is a location that comes inside an
+image: Aruna never writes it to the file it saves, but it stays in an image waiting to be saved
+to an entry and in the temporary copy the system hands to the app, for as long as described
+under "Image metadata". The name you give the app is stored only on your device; where it goes
+when you share a PDF or move a backup out of Aruna is described under "When data can leave your
+device".
 
 ### Protection on the device
 
@@ -644,7 +667,8 @@ Android's device encryption, Android's app sandbox (other apps cannot reach Arun
 the app lock if you set one up.
 
 The app lock opens with a PIN or your device's biometrics and locks itself again after the
-delay you choose. You can also lock individual entries.
+delay you choose. While the app lock is on, on Android 13 and later the "recent apps" list does
+not show a preview of Aruna's screen. You can also lock individual entries.
 
 **Your biometric data never reaches the app.** Android verifies your fingerprint or face; Aruna
 only sees the "verified" or "not verified" result.
@@ -656,14 +680,15 @@ settings. There is also a separate switch that protects the whole app, off by de
 **Android's cloud backup is disabled in the app:** your data is not included in a Google Drive
 backup. When you move to a new device, however, the operating system's device-to-device
 transfer may carry Aruna's data on devices from some manufacturers; you and the operating
-system start that, not Aruna. In such a transfer your entries, media, settings and the PIN
-hash are carried over; the backups in My backups are not, because they sit in a folder that
-Android leaves out of this transfer. Your recovery key and your saved backup password are not
-carried over either, because they are bound to the old device's keystore and cannot be read on
-the new one; you also choose the external folder again on the new device. Aruna notices the
-recovery key's state when it starts and tells you; under Security and privacy, after
-confirming your identity, you create a new recovery key and your PIN stays the same. The
-reliable way to move your data yourself is a backup you share or save.
+system start that, not Aruna. In such a transfer your entries, media (including images waiting
+to be saved to an entry), settings and the PIN hash are carried over; the backups in My backups
+are not, because they sit in a folder that Android leaves out of this transfer. Your recovery
+key and your saved backup password are not carried over either, because they are bound to the
+old device's keystore and cannot be read on the new one; you also choose the external folder
+again on the new device. Aruna notices the recovery key's state when it starts and tells you;
+under Security and privacy, after confirming your identity, you create a new recovery key and
+your PIN stays the same. The reliable way to move your data yourself is a backup you share or
+save.
 
 ### Ads, analytics and tracking
 
@@ -829,10 +854,23 @@ opened, the app hands the browser nothing but the address.
 
 ### Image metadata
 
-Images you add to an entry are re-encoded as they are imported. The consequence is this: the
-metadata inside the image (location, capture date, camera information) **does not go into**
-the file Aruna saves, and it is not in the file you share either. The original copy the system
-hands over during selection is deleted as soon as the import is done.
+Personal metadata inside an image (location, capture date, camera and device information)
+**does not go into** the file Aruna saves, and it is not in the file you share either. How this
+is done depends on the image quality you choose in Settings > Storage. With Original, JPEG and
+PNG images are not re-encoded: Aruna removes that metadata from the file, and the technical
+information the image needs to display correctly (such as the orientation and the color
+profile) stays in it. Images you crop, your profile image and images in other formats are
+re-encoded with Original too; at the other quality levels every image is re-encoded. The
+metadata is never written to a re-encoded file.
+
+An image you take with the camera for an entry waits in the app's private storage, as the
+camera produced it and with its metadata, until you save it or delete it. If the app closes in
+the meantime, the image is kept and you are asked about it the next time you open the app. A
+waiting image does not go into Aruna's backups, but a device-to-device transfer can carry it
+along with your other data ("Protection on the device"). In other cases (picking from your
+gallery, a profile image), the copy the system hands to the app is deleted as soon as the
+import is done; if the app closes in between, it is cleaned up on a later start. The original
+image in your gallery is not touched.
 
 ### The mood mark
 
@@ -880,7 +918,9 @@ backups you shared or saved, or copies in the external folder.
 Aruna does not delete image and audio files that are not attached to any entry (for example,
 leftovers from an interrupted operation) right away: it first holds them in a separate folder
 for at least 30 days. If they are attached to an entry again during that time (for example, by
-a restore), they return to their place; otherwise they are deleted.
+a restore), they return to their place; otherwise they are deleted. Images you have taken with
+the camera but not yet saved to an entry are an exception: deleting all entries or all images
+does not touch them either, and they stay until you decide ("Image metadata").
 
 Uninstalling the app deletes all data in Aruna's own storage, including the backups in My
 backups. Copies in the external folder are not deleted (see below).
