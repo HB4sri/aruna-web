@@ -6,7 +6,7 @@
 
 ## Gizlilik Politikası
 
-**Sürüm:** 1.5 · **Yürürlük:** 16 Ekim 2026
+**Sürüm:** 1.6 · **Yürürlük:** 3 Kasım 2026
 **İletişim:** support@hb4.aleeas.com
 
 ### Özet
@@ -55,7 +55,8 @@ bir eyleminize bağlı olup olmadığı ve içinde not içeriği bulunup bulunma
   adresinizi görürüm. Uygulama e-posta uygulamanızı yalnızca adres, konu ve boş bir şablonla
   açar; neyi yazıp göndereceğinize siz karar verirsiniz.
 - **Tanılama dosyası.** Bir sorunu bildirirken eklemeyi seçerseniz uygulamanın hata
-  kayıtlarını görürüm: zaman, sürüm numarası, hatanın türü ve iletisi, teknik iz. Kayıtlarda
+  kayıtlarını görürüm: zaman, sürüm numarası, hatanın türü ve iletisi, teknik iz, hatanın
+  çıktığı ekran. Kayıtlarda
   notlarınız için bir alan yoktur ve hata iletileri kayda yazılmadan önce süzülür
   ("Cihazınızda ne saklanıyor"). Göndermeden önce dosyanın tamamını Ayarlar > Yardım >
   Tanılama'da görebilirsiniz.
@@ -173,8 +174,11 @@ cihazınıza bağlıdır ve cihazınızı terk etmez. Yedek parolanızı kaydetm
 Android'in anahtar deposuyla şifrelenerek yalnızca cihazınızda saklanır ve yedeğe girmez.
 
 **Tanılama:** uygulama bir hatayla karşılaşırsa cihazda tanılama için tutulan bir dosyaya
-teknik bir kayıt eklenir: zaman, uygulamanın sürümü, hatanın türü, iletisi ve teknik izi.
-Kayıtlarda notlarınız için bir alan yoktur; en çok 50 kayıt tutulur, eskisi silinir ve
+teknik bir kayıt eklenir: zaman, uygulamanın sürümü, hatanın türü, iletisi, teknik izi ve
+hatanın çıktığı ekran. Ekran bilgisi yalnızca sayfanın genel adresidir (örneğin not detayı
+sayfası) ve üstünde bir panel, pencere ya da ayrı bir sayfa açıksa onun türünü söyler; hangi
+notta olduğunuzu söylemez, uygulama o sırada önde değilse "arka plan" yazar. Kayıtlarda notlarınız için bir
+alan yoktur; en çok 50 kayıt tutulur, eskisi silinir ve
 kayıtlar kendiliğinden hiçbir yere gönderilmez. Hatanın iletisi kayda yazılmadan önce süzülür:
 veri taşıyabilecek kısmı (örneğin bir notun ya da etiketin içeriği, bir dosya yolu) atılır,
 Aruna'nın tanımadığı bir hatanın iletisi hiç yazılmaz. Süzgeçten önceki sürümlerin yazdığı
@@ -364,7 +368,8 @@ koruma").
 **Tanılama dosyası.** Notlarınız değildir ama cihazınızdan çıkabilen bir dosyadır ve yalnızca
 siz isterseniz gider: sorun bildirirken e-postaya eklemeyi seçtiğinizde ya da Ayarlar > Yardım
 > Tanılama sayfasından paylaştığınızda veya kopyaladığınızda. İçinde uygulamanın sürüm
-numarası ve hata kayıtları (zaman, hatanın türü ve iletisi, teknik iz) vardır; notlarınız için
+numarası ve hata kayıtları (zaman, hatanın türü ve iletisi, teknik iz, hatanın çıktığı ekran)
+vardır; notlarınız için
 bir alan, görselleriniz, cihaz kimliğiniz ve cihaz modeliniz yoktur. Hata iletileri kayda
 yazılmadan önce süzülür ("Cihazınızda ne saklanıyor"). Dosyanın tamamını göndermeden önce
 Tanılama sayfasında görebilirsiniz.
@@ -477,7 +482,7 @@ değişiklik o sürümün notlarında da yazılır.
 
 ## Privacy Policy
 
-**Version:** 1.5 · **Effective:** 16 October 2026
+**Version:** 1.6 · **Effective:** 3 November 2026
 **Contact:** support@hb4.aleeas.com
 
 ### Summary
@@ -527,8 +532,8 @@ do and whether it contains the content of your entries.
   your email address. The app opens your email app with only the address, a subject and an
   empty template; you decide what to write and send.
 - **The diagnostic file.** If you choose to attach it when reporting a problem, I see the
-  app's error records: the time, the version number, the error's type and message, and a
-  technical trace. The records have no field for your entries, and error messages are filtered
+  app's error records: the time, the version number, the error's type and message, a
+  technical trace and the screen where the error happened. The records have no field for your entries, and error messages are filtered
   before they are written (see "What is stored on your device"). Before you send it, you can
   read the whole file under Settings > Help > Diagnostics.
 - **Your testing feedback and your review.** I see the private feedback you write on Google
@@ -643,8 +648,12 @@ never leaves it. If you choose to save your backup password, it too is stored en
 Android's keystore, only on your device, and it is not included in backups.
 
 **Diagnostics:** if the app hits an error, a technical record is added to a file kept on the
-device for diagnostics: the time, the app version, the error's type, its message and a
-technical trace. The records have no field for your entries; at most 50 are kept, older ones
+device for diagnostics: the time, the app version, the error's type, its message, a technical
+trace and the screen where the error happened. The screen is only the page's general address
+(for example, the entry details page) and, if a panel, window or separate page is open on top
+of it, that one's type; it doesn't say which entry you were on, and it reads "arka plan" (background) if
+the app wasn't in the foreground. The records have no field for your entries; at most 50 are
+kept, older ones
 are dropped, and nothing is sent anywhere on its own. An error's message is filtered before it
 is written: the part that could carry data (for example, the content of an entry or a tag, or
 a file path) is dropped, and the message of an error Aruna does not recognize is not written
@@ -839,7 +848,8 @@ Aruna's data may be carried to the new device on devices from some manufacturers
 **Diagnostic file.** It is not your diary, but it is a file that can leave your device, and it
 goes only if you want it to: when you choose to attach it while reporting a problem by email,
 or when you share or copy it from Settings > Help > Diagnostics. It contains the app's version
-number and the error records (time, the error's type and message, a technical trace); it has
+number and the error records (time, the error's type and message, a technical trace, the
+screen where the error happened); it has
 no field for your entries and contains none of your images, no device ID and no device model.
 Error messages are filtered before they are written (see "What is stored on your device"). You
 can see the whole file on the Diagnostics page before you send it.
