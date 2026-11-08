@@ -2,19 +2,19 @@
 
 ## Türkçe
 
-Yazarak, görsel ekleyerek ve ses kaydederek günlük tutabileceğiniz bir Android uygulaması.
+Yazarak, görsel ekleyerek ve ses kaydederek günlük tutabileceğin bir Android uygulaması
 {: .tanit}
 
-Hesap istemez, bir sunucuya bağlanmaz; internet izni de yok. Yazdıklarınız cihazınızda kalır ve yalnızca sizin seçtiğiniz yollarla, örneğin bir yedek dosyasıyla ya da paylaşarak çıkar.
+Hesap istemez, bir sunucuya bağlanmaz; internet izni de yok. Yazdıkların cihazında kalır ve yalnızca senin seçtiğin yollarla, örneğin bir yedek dosyasıyla ya da paylaşarak çıkar.
 {: .alt-tanit}
 
 - [Gizlilik politikası](gizlilik)
 {: .baglar}
 
-- **Yazın, görsel ekleyin, ses kaydedin** Biçimlendirilmiş metin, görsel, çizim ve ses kaydı aynı notun içinde.
-- **Kilitli notlar** PIN ve parmak izi ile kilitleyebilirsiniz; kilitli notlar bildirimlere hiç girmez.
-- **Notlarınızı göremem** Uygulamanın internet izni yok; bir notu paylaşırsanız kimin göreceğini siz seçersiniz.
-- **Otomatik yedek** Otomatik yedekler cihazınızda durur; bir yedeği paylaşabilir ya da istediğiniz yere kaydedebilirsiniz.
+- **Yaz, görsel ekle, ses kaydet** Biçimlendirilmiş metin, görsel, çizim ve ses kaydı aynı notun içinde
+- **Kilitli notlar** Notlarını PIN ya da parmak iziyle kilitleyebilirsin; kilitli notlar bildirimlere hiç girmez
+- **Notlarını göremem** Uygulamanın internet izni yok; bir notu paylaşırsan kimin göreceğini sen seçersin
+- **Otomatik yedek** Otomatik yedekler cihazında durur; bir yedeği paylaşabilir ya da istediğin yere kaydedebilirsin
 {: .ozellikler}
 
 Destek: [support@hb4.aleeas.com](mailto:support@hb4.aleeas.com)

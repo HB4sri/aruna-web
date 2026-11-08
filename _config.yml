@@ -1,7 +1,7 @@
 title: Aruna
 description: >-
-  Günlük ve not defteri için bir Android uygulaması. Hesap istemez, bir
-  sunucuya bağlanmaz ve internet izni istemez.
+  Günlük ve not defteri için bir Android uygulaması. Hesap istemez ve bir
+  sunucuya bağlanmaz; internet izni de yok.
 
 # baseurl bos birakilamaz: bos kalirsa sayfa ici baglar hb4sri.github.io
 # koklerine gider, aruna-web'e degil.
@@ -74,11 +74,10 @@ defaults:
       # Sayfanin h1'i yalniz marka adini tasiyor (politika basligi her dilin
       # kendi bolumunde). Play "sayfa gizlilik politikasi diye etiketlenmis
       # olmali" dedigi icin etiketi <title> de tasir.
-      title: "Aruna Gizlilik Politikası / Privacy Policy"
+      title: "Aruna gizlilik politikası / Privacy Policy"
       aciklama: >-
-        Aruna gizlilik politikası: hesap yok, sunucu yok, internet izni yok.
-        Yazdıklarınız cihazınızda kalır ve yalnızca sizin seçtiğiniz yollarla
-        çıkar.
+        Aruna gizlilik politikası. Yazdıkların cihazında kalır ve yalnızca senin
+        seçtiğin yollarla çıkar; Aruna'nın internet izni yok.
   # Giris sayfasinin aciklamasi. Duzen (default.html) aciklamasi olmayan
   # sayfaya eski, Turkce harfsiz bir yedek metin veriyor; duzene dokunmadan
   # burada verilir (guven ve gizlilik 1.2 turu, Faz 3).
@@ -86,5 +85,5 @@ defaults:
       path: "index.md"
     values:
       aciklama: >-
-        Günlük ve not defteri için bir Android uygulaması. Hesap istemez, bir
-        sunucuya bağlanmaz ve internet izni istemez.
+        Günlük ve not defteri için bir Android uygulaması. Hesap istemez ve bir
+        sunucuya bağlanmaz; internet izni de yok.

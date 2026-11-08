@@ -4,15 +4,15 @@
 
 ---
 
-## Gizlilik Politikası
+## Gizlilik politikası
 
-**Sürüm:** 1.6 · **Yürürlük:** 3 Kasım 2026
+**Sürüm:** 1.7 · **Yürürlük:** 8 Kasım 2026
 **İletişim:** support@hb4.aleeas.com
 
 ### Özet
 
 Aruna ücretsizdir. Reklam, ücretli özellik, abonelik ya da uygulama içi satın alma yoktur.
-Aruna hesap istemez, bir sunucuya bağlanmaz ve internet izni istemez.
+Aruna hesap istemez ve bir sunucuya bağlanmaz. İnternet izni de istemez.
 
 Yazdıklarınız, görselleriniz ve ses kayıtlarınız cihazınızda kalır. Cihazınızdan yalnızca
 sizin seçtiğiniz yollarla çıkar: bir yedeği paylaştığınızda ya da kaydettiğinizde, yedekler
@@ -30,12 +30,12 @@ Bu politika, Aruna (paket adı `com.hb4sri.aruna`) Android uygulaması için ge�
 ### Ne görürüm, ne göremem
 
 Aruna'yı ben geliştiriyorum ve Google Play üzerinden dağıtıyorum. Aşağıda, bir geliştirici
-olarak neyi görebildiğimi ve neyi göremediğimi üç grupta yazıyorum. Her maddede bunun sizin
+olarak neyi görebildiğimi ve neyi göremediğimi 3 grupta yazıyorum. Her maddede bunun sizin
 bir eyleminize bağlı olup olmadığı ve içinde not içeriği bulunup bulunmadığı da yazıyor.
 
 #### Göremediklerim
 
-- **Cihazınızdaki notlarınız:** başlıkları, yazıları, görselleri, çizimleri, ses kayıtları,
+- **Cihazınızdaki notlarınız.** Başlıkları, yazıları, görselleri, çizimleri, ses kayıtları,
   etiketleri ve ruh hâlleri. Aruna'nın internet izni olmadığı için uygulama bunların hiçbirini
   internet üzerinden bana ya da başka bir yere gönderemez.
 - **PIN'iniz, kurtarma anahtarınız ve yedek parolanız.** Aruna üçünü de yalnızca cihazınızda
@@ -72,22 +72,22 @@ bir eyleminize bağlı olup olmadığı ve içinde not içeriği bulunup bulunma
 Aruna'yı Google Play'den kurduğunuz için Google, Play Console'da bana bazı bilgiler gösterir.
 Bunları Aruna değil Google toplar ve hiçbirinde not içeriği yoktur.
 
-- **Kurulum istatistikleri:** kaç kişinin kurduğu ve kaldırdığı; ülke, dil, Android sürümü,
+- **Kurulum istatistikleri.** Kaç kişinin kurduğu ve kaldırdığı; ülke, dil, Android sürümü,
   cihaz modeli ve operatöre göre toplam sayılar.
-- **Çökme ve performans raporları (Android vitals):** cihazınızda kullanım ve teşhis
+- **Çökme ve performans raporları (Android vitals).** Cihazınızda kullanım ve teşhis
   verilerini Google'la paylaşmayı açtıysanız, uygulama çöktüğünde ya da donduğunda Google bir
   rapor toplar. Raporda hatanın teknik izi, uygulamanın ve Android'in sürümü, cihaz modeli ve
   ülke ya da bölge bulunur.
 
 #### Aruna'nın dışında kalanlar
 
-- **Klavyeniz:** yazarken kullandığınız klavye ayrı bir uygulamadır; yazdıklarınızı görür ve
+- **Klavyeniz.** Yazarken kullandığınız klavye ayrı bir uygulamadır; yazdıklarınızı görür ve
   kendi ayarlarına göre öğrenebilir (öneriler, kişisel sözlük). Bu, klavyenizin ve onu yapan
   şirketin kurallarına bağlıdır.
-- **Pano:** kopyaladığınız metni Android 10 ve üstünde yalnızca o an ekranda olan uygulama ve
+- **Pano.** Kopyaladığınız metni Android 10 ve üstünde yalnızca o an ekranda olan uygulama ve
   klavyeniz okuyabilir; daha eski Android sürümlerinde arka plandaki uygulamalar da
   okuyabilir.
-- **Paylaşımın hedefi:** paylaştığınız içerik seçtiğiniz uygulamaya gider ve orada o
+- **Paylaşımın hedefi.** Paylaştığınız içerik seçtiğiniz uygulamaya gider ve orada o
   uygulamanın kuralları geçerlidir.
 
 ### Kendiniz doğrulayın
@@ -98,7 +98,7 @@ cihazdan ve Google'ın kendi Android 14 arayüzünden alınmıştır.
 
 1. **İzin listesi, cihazda.** Ayarlar > Uygulamalar'da Aruna'yı açın (bazı cihazlarda önce
    "Tüm uygulamalar"), sonra İzinler'e girin ve sağ üstteki üç noktadan "Tüm izinler"i seçin.
-   Android 13 ve üstünde listede altı satır görürsünüz: bildirimleri göster, ses kaydet,
+   Android 13 ve üstünde listede 6 satır görürsünüz: bildirimleri göster, ses kaydet,
    başlangıçta çalıştırma, parmak izi donanımını kullanma, titreşimi denetleme ve biyometrik
    donanım kullan. İnternet izni olan bir uygulamanın listesinde "tam ağ erişimine sahip
    olma" satırı bulunur; Aruna'nınkinde yoktur.
@@ -114,13 +114,13 @@ cihazdan ve Google'ın kendi Android 14 arayüzünden alınmıştır.
    dokununca açılan ekrandaki "Arka planda veri kullanımına izin ver" gibi anahtarlar her
    uygulamada görünür; internet izni olmayan bir uygulama bu anahtarlar açıkken de ağa
    bağlanamaz.
-4. **Uçak modu.** Uçak modunu açın ve Wi-Fi'nin de kapalı olduğundan emin olun; bazı
+4. **Uçak modu.** Uçak modunu açın ve Wi-Fi'yi de kapatın; bazı
    cihazlarda uçak modu Wi-Fi'yi açık bırakır. Aruna'nın her özelliği çalışmaya devam eder:
    yazmak, görsel ve çizim eklemek, ses kaydetmek, PDF oluşturmak ve yedek almak.
 5. **Google Play'deki Veri güvenliği bölümü ve etiketler.** Aruna'nın Play sayfasındaki "Veri
    güvenliği" bölümünde "Üçüncü taraflarla veri paylaşımı yok" ve "Veri toplanamadı" (yani
    uygulama veri toplamıyor) yazar.
-   Bu bölüm benim Google'a verdiğim beyandır; Google Play de onu "Geliştirici ... söylüyor"
+   Bu bölüm benim Google'a verdiğim beyandır; Google Play de onu "Geliştirici … söylüyor"
    diye gösterir. Aynı bölümdeki "Uygulama, verilerin silinmesini talep edebileceğiniz bir
    yöntem sunmuyor" satırının anlamı şudur: uygulama verinizi bana göndermediği için
    benden silmemi isteyeceğiniz bir uygulama verisi yoktur; cihazınızdaki veriyi uygulamanın
@@ -195,19 +195,19 @@ cihazınızdan çıkabileceği durumlar" bölümünde yazıyor.
 
 ### Cihazda koruma
 
-**Canlı veritabanı uygulama tarafından ayrıca şifrelenmez.** Koruma şuradan gelir: Android'in
+**Uygulama canlı veritabanını ayrıca şifrelemez.** Koruma şuradan gelir: Android'in
 cihaz şifrelemesi, Android'in uygulama kum havuzu (başka uygulamalar Aruna'nın dosyalarına
 erişemez) ve isterseniz kurduğunuz uygulama kilidi.
 
 Uygulama kilidi PIN ya da cihazınızın biyometrisiyle açılır ve seçtiğiniz süre sonunda
 kendiliğinden kilitlenir. Uygulama kilidi açıkken Android 13 ve üstünde "son uygulamalar"
-listesi Aruna'nın ekranını önizleme olarak göstermez. Notları tek tek de kilitleyebilirsiniz.
+listesi Aruna'nın ekranını ön izleme olarak göstermez. Notları tek tek de kilitleyebilirsiniz.
 
 **Biyometrik veriniz uygulamaya hiç gelmez.** Parmak izinizi ya da yüzünüzü Android doğrular;
 Aruna yalnızca "doğrulandı" ya da "doğrulanmadı" sonucunu görür.
 
 Kilitli bir notun içeriği ekrandayken uygulama ekran görüntüsünü, ekran kaydını ve "son
-uygulamalar" önizlemesini engeller; bu koruma varsayılan olarak açıktır ve ayardan
+uygulamalar" ön izlemesini engeller; bu koruma varsayılan olarak açıktır ve ayardan
 kapatılabilir. Uygulamanın tamamı için de ayrı bir koruma anahtarı vardır ve varsayılanı
 kapalıdır.
 
@@ -244,7 +244,7 @@ cihazınızdan çıkmaz.
 Uygulama `INTERNET` izni **istemez.** Bu izin olmadan uygulama kendi başına ağ üzerinden
 hiçbir veri gönderemez.
 
-Android iki tür izin kullanır. Bazılarını uygulama, ilgili özelliği ilk açtığınızda size
+Android 2 tür izin kullanır. Bazılarını uygulama, ilgili özelliği ilk açtığınızda size
 sorar; ötekileri Android kurulum sırasında kendiliğinden verir ve hiç sormaz. Uygulamanın
 kendi iç izni dışında hepsi izin listesinde görünür ("Kendiniz doğrulayın").
 
@@ -260,7 +260,7 @@ kendi iç izni dışında hepsi izin listesinde görünür ("Kendiniz doğrulay�
   yoktur.
 - `VIBRATE` - bildirim titreşimi ve dokunma geri bildirimi için; kurulumda verilir.
 
-Kullanılan kütüphanelerin eklediği iki izin daha pakettedir: `USE_FINGERPRINT` (biyometri
+Kullanılan kütüphanelerin eklediği 2 izin daha pakettedir: `USE_FINGERPRINT` (biyometri
 kütüphanesi, eski Android sürümleri için; kurulumda verilir) ve uygulamanın kendi adıyla
 başlayan `DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION` (Android destek kütüphanesi kendi
 bileşenini başka uygulamalardan korumak için ekler; izin listelerinde görünmez).
@@ -288,7 +288,7 @@ Bir izni vermezseniz yalnızca o özellik çalışmaz; uygulamanın kalanı çal
 
 ### Bildirimler
 
-İki tür bildirim vardır: kurduğunuz hatırlatıcılar ve geçmiş yıllarda aynı güne
+2 tür bildirim vardır: kurduğunuz hatırlatıcılar ve geçmiş yıllarda aynı güne
 yazdıklarınızı hatırlatan anı bildirimi. Hatırlatıcı, kendi yazdığınız metni ya da
 uygulamanın hazır metinlerinden birini gösterir.
 
@@ -308,14 +308,14 @@ cihazınızın içinde üretilir, bir sunucudan gelmez.
 
 ### Verinin cihazınızdan çıkabileceği durumlar
 
-Günlük içeriğiniz cihazınızdan yalnızca sizin seçtiğiniz dört yolla çıkar. Uygulama
+Günlük içeriğiniz cihazınızdan yalnızca sizin seçtiğiniz 4 yolla çıkar. Uygulama
 kendiliğinden hiçbir veri göndermez; dış klasörü açtıysanız kopyaları yalnızca o klasöre
 yazar.
 
 **1. Yedek.** Ayarlar > Yedekleme ve geri yükleme'den aldığınız yedekler ve otomatik yedekler
 önce Yedeklerim'e, cihazınızın içine alınır ("Cihazınızda ne saklanıyor") ve siz seçmedikçe
 oradan çıkmaz. Otomatik yedek varsayılan olarak açıktır; Yedekleme ve geri yükleme sayfasından
-kapatabilir ya da sıklığını haftada bire çekebilirsiniz. Bir yedek üç yolla dışarı çıkar ve
+kapatabilir ya da sıklığını haftada bire çekebilirsiniz. Bir yedek 3 yolla dışarı çıkar ve
 üçünü de siz seçersiniz: Paylaş, yedeği seçtiğiniz uygulamaya gönderir; Kaydet, sistemin
 kaydetme penceresini açar ve dosyayı sizin seçtiğiniz yere yazar (cihazınızdaki bir klasöre ya
 da pencerede görünen başka bir yere); "Dış klasöre de kopyala" anahtarını açarsanız her
@@ -358,8 +358,7 @@ gönderebilirsiniz ("Paylaş" ya da cihazınızdaki çeviri gibi bir uygulama).
 **3. Kopyalama.** Bir notun metnini seçip kopyaladığınızda ya da uygulamadaki bir kopyalama
 düğmesine bastığınızda (bağlantı, kurtarma anahtarı, tanılama kaydı, destek adresi) metin
 cihazınızın panosuna gider; oradan nereye yapıştıracağınıza siz karar verirsiniz. Kurtarma
-anahtarı panoya hassas içerik olarak işaretlenerek yazılır; Android 13 ve üstü onu kopyalama
-önizlemesinde göstermez.
+anahtarı panoya hassas içerik olarak işaretlenerek yazılır; Android 13 ve üstü onu kopyalama ön izlemesinde göstermez.
 
 **4. Cihazdan cihaza aktarım.** Yeni bir cihaza geçerken Android'in aktarımını başlatırsanız
 bazı üreticilerin cihazlarında Aruna'nın verisi de yeni cihaza taşınabilir ("Cihazda
@@ -367,7 +366,7 @@ koruma").
 
 **Tanılama dosyası.** Notlarınız değildir ama cihazınızdan çıkabilen bir dosyadır ve yalnızca
 siz isterseniz gider: sorun bildirirken e-postaya eklemeyi seçtiğinizde ya da Ayarlar > Yardım
-> Tanılama sayfasından paylaştığınızda veya kopyaladığınızda. İçinde uygulamanın sürüm
+> Tanılama sayfasından paylaştığınızda ya da kopyaladığınızda. İçinde uygulamanın sürüm
 numarası ve hata kayıtları (zaman, hatanın türü ve iletisi, teknik iz, hatanın çıktığı ekran)
 vardır; notlarınız için
 bir alan, görselleriniz, cihaz kimliğiniz ve cihaz modeliniz yoktur. Hata iletileri kayda
@@ -402,9 +401,7 @@ açılışlardan birinde temizlenir. Galerinizdeki asıl görsele dokunulmaz.
 
 ### Ruh hâli işareti
 
-Bir nota isterseniz beş kademeli bir ruh hâli işareti bırakabilirsiniz. Bu kişisel bir
-işarettir: tıbbi bir amacı yoktur, teşhis veya tedavi için kullanılamaz ve size bir öneri ya
-da program sunmaz.
+Bir nota isterseniz 5 kademeli bir ruh hâli işareti bırakabilirsiniz. Bu kişisel bir işarettir ve tıbbi bir amacı yoktur. Teşhis ya da tedavi için kullanılamaz, size öneri ya da program da sunmaz.
 
 "Ruh hâlini gizle" ayarı işareti uygulamanın tamamında gizler ama kayıtlı işaretleri silmez.
 Ruh hâli, notunuzu paylaştığınızda (bu ayar kapalıysa) ve bir yedekle cihazınızdan çıkabilir
@@ -428,7 +425,7 @@ Kalıcı olarak silinen bir not, daha önce alınmış yedeklerde durmaya devam 
 Yedeklerim'deki otomatik yedeklerde yeni otomatik yedekler onların yerini alana kadar, geri
 yüklemeden önce alınan güvenlik yedeğinde bir sonraki geri yüklemeye kadar, elle aldığınız
 yedeklerde ve ad verdiğiniz yedeklerde siz silene kadar. Günlüğünüz düzenli değiştikçe
-otomatik yedeklerin yenilenmesi en çok yaklaşık 2 ay sürer; otomatik yedek yalnızca günlüğünüz
+otomatik yedeklerin yenilenmesi yaklaşık 2 aya kadar sürer; otomatik yedek yalnızca günlüğünüz
 değiştiğinde alındığı için seyrek yazdığınızda ya da otomatik yedeği kapattığınızda eski
 yedekler daha uzun yerinde kalır.
 
@@ -482,7 +479,7 @@ değişiklik o sürümün notlarında da yazılır.
 
 ## Privacy Policy
 
-**Version:** 1.6 · **Effective:** 3 November 2026
+**Version:** 1.7 · **Effective:** 8 November 2026
 **Contact:** support@hb4.aleeas.com
 
 ### Summary
